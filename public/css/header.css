@@ -10,8 +10,9 @@ barra superior (encabezado)
 */
 .top-bar {
     background-color: var(--primary-color);
-    padding: 10px 20px 0 20px;
-    height: 12vh;
+    padding: 5px 10px 0 10px;
+    height: 13vh;
+    min-height: fit-content;
 }
 
 .hero {

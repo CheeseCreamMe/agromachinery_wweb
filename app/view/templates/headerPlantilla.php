@@ -20,9 +20,6 @@
                             <span class = 'text'> Mi carrito</span>
                             <span class = 'number'> (0)</span>
                         </div>
-                        <div class="content-column">
-                            <a class = 'text' href = "identify"  > Iniciar<br>secion</a>
-                        </div>
                     </div>
                 </div>
             </div>
