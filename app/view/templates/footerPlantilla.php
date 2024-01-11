@@ -12,16 +12,16 @@
                         </ul>
                         <div class="social-icons">
                             <span class="facebook">
-                            <img src="./app/core/resources/image/facebook.png" alt="otra vaina" style="width:32px">
+                            <img src="<?php echo IMAGE; ?>facebook.png" alt="otra vaina" style="width:32px">
                             </span>
                             <span class="twitter">
-                            <img src="./app/core/resources/image/twitter.png" alt="otra vaina" style="width:32px">
+                            <img src="<?php echo IMAGE; ?>twitter.png" alt="otra vaina" style="width:32px">
                             </span>
                             <span class="instagram">
-                            <img src="./app/core/resources/image/instagram.png" alt="otra vaina" style="width:32px">
+                            <img src="<?php echo IMAGE; ?>instagram.png" alt="otra vaina" style="width:32px">
                             </span>
                             <span class="whatsapp">
-                            <img src="./app/core/resources/image/whatsapp.png" alt="otra vaina" style="width:32px">
+                            <img src="<?php echo IMAGE; ?>whatsapp.png" alt="otra vaina" style="width:32px">
                             </span>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                         Desarrollado por CesarDev  &copy; 2022
                     </p>
 
-                    <img src="./app/core/resources/image/logo.jpg" alt="Agromachinery logo" />
+                    <img src="<?php echo IMAGE; ?>logo.jpg" alt="Agromachinery logo" />
                 </div>
             </div>
         </footer>
