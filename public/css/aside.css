@@ -1,0 +1,16 @@
+.main-conteiner {
+    display: flex;
+    height: fit-content;
+}
+
+.aside {
+    width: 15%;
+    background-color: salmon;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    height: auto;
+    min-height: 27.4vh;
+}
