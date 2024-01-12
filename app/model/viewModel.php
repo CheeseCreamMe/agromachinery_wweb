@@ -1,9 +1,9 @@
 <?php
 class ViewModel {
-
+    protected $white_list =[ 'home','error','products','contact','about', 'identify' , 'index', 'admin'];
     protected function obtenerPagina($vista) {
-    $white_list =[ 'home','error','products','contact','about', 'identify'];
-
+    
+    $white_list = $this->white_list;
 
     if(in_array($vista , $white_list))
         {
@@ -16,15 +16,28 @@ class ViewModel {
                 $pagina_deseada = VIEW."homeViewPage.php";
             }
         }
-        else if($vista == "index")
-        {
-            $pagina_deseada = VIEW."homeViewPage.php";
-        }
-        else if($vista == "error")
+        else
         {
             $pagina_deseada = VIEW."notFoundViewPage.php";
         }
-        else if(!in_array($vista , $white_list))
+
+        return $pagina_deseada;
+    }
+
+    protected function obtenerPaginaAdmin($vista) {
+        $white_list = $this->white_list;
+        if(in_array($vista , $white_list))
+        {
+            if(is_file(ADMIN.$vista."ViewPage.php"))
+            {
+                $pagina_deseada = ADMIN.$vista."ViewPage.php";
+            }
+            else
+            {
+                $pagina_deseada = VIEW."homeViewPage.php";
+            }
+        }
+        else
         {
             $pagina_deseada = VIEW."notFoundViewPage.php";
         }
@@ -32,4 +45,3 @@ class ViewModel {
         return $pagina_deseada;
     }
 }
-
