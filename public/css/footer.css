@@ -8,19 +8,36 @@
 	gap: 4rem;
 	padding: 3rem;
 }
+@media (max-width: 1024px) {
+    .contact-footer {
+        grid-template-columns: 1fr;
+		padding: 10rem;
+    }
+}
 
 .menu-footer {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr) 30rem;
+	grid-template-columns: repeat(3, 1fr) 35rem;
 	gap: 3rem;
 	justify-items: center;
 }
-
+@media (max-width: 1024px) {
+    .menu-footer {
+        grid-template-columns: 1fr ;
+		gap: 5rem;
+    }
+}
 .title-footer {
 	font-weight: 600;
 	font-size: 1.6rem;
 	text-transform: uppercase;
 	color: #eee;
+}
+@media (max-width: 1024px) {
+    .title-footer{
+    text-align: center;
+	font-size: 6rem;
+    }
 }
 
 .contact-info,
@@ -48,6 +65,13 @@
 	font-size: 1.4rem;
 	font-weight: 300;
 }
+@media (max-width: 1024px) {
+	.contact-info ul li a,
+	.information ul li a,
+	.my-account ul li a {
+		font-size: 3rem;
+	}
+}
 
 .information ul li a,
 .my-account ul li a {
@@ -65,17 +89,36 @@
 	display: flex;
 	gap: 1.5rem;
 }
+@media (max-width: 1024px) {
+    .social-icons {
+		display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
 
 .social-icons span {
 	border-radius: 50%;
 	width: 3rem;
 	height: 3rem;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+@media (max-width: 1024px) {
+    .social-icons span{
+		width: 8rem;
+		height: 8rem;
+    }
+}
 
+.icon-image{
+	width: 32px;
+}
+@media (max-width: 1024px) {
+    .icon-image {
+		width: 5rem;
+    }
+}
 .social-icons span i {
 	color: #fff;
 	font-size: 1.2rem;
@@ -108,43 +151,8 @@
 	color: #fff;
 }
 
-.content p {
-	font-size: 1.4rem;
-	color: #fff;
-	font-weight: 300;
-}
 
-.content input {
-	outline: none;
-	background: none;
-	border: none;
-	border-bottom: 2px solid #d2b495;
-	cursor: pointer;
-	padding: 0.5rem 0 1.2rem;
-	color: var(--dark-color);
-	display: block;
-	margin-bottom: 3rem;
-	margin-top: 2rem;
-	width: 100%;
-	font-family: inherit;
-}
 
-.content input::-webkit-input-placeholder {
-	color: #eee;
-}
-
-.content button {
-	border: none;
-	background-color: #000;
-	color: #fff;
-	text-transform: uppercase;
-	padding: 1rem 3rem;
-	border-radius: 2rem;
-	font-size: 1.35rem;
-	font-family: inherit;
-	cursor: pointer;
-	font-weight: 600;
-}
 
 .content button:hover {
 	background-color: var(--background-color);
@@ -162,4 +170,9 @@
 .copyright p {
 	font-weight: 400;
 	font-size: 1.2rem;
+}
+@media (max-width: 1024px) {
+    .copyright {
+        text-align: center;
+    }
 }
