@@ -38,8 +38,7 @@ barra superior (encabezado)
     display: flex;
     align-items: center;
     gap: .5rem;
-    position: absolute;
-    transform: translateX(40vw);
+    position: absolute; 
 }
 
 .logo {
