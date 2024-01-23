@@ -15,7 +15,7 @@
                     </div> 
                     <section class = "content-column">
                             <span class = "text">Soporte</span>
-                            <span class = "number"><?php echo SUPPORT_NUMBER ?></span>
+                            <span class = "number"><?php echo HeadSETT.SUPPORT_NUMBER ?></span>
                         </section>
                 </div>
             </div>
@@ -25,11 +25,8 @@
                         <a class="links" href = "home">Inicio</a>
                         <a class="links" href = "maquinaria">Maquinaria</a>
                         <a class="links" href = "agricola">Agricola</a>
+                        <a class="links" href = "about">Quines Somos</a>
                     </ul>
-                    <form class="search">
-                        <input class='search-im' type="search" name="buscar" id="buscar" placeholder='Buscar...' />
-                        <button class='btn-search'><Search /></button>
-                    </form>
                 </nav>
             </div>
         </header>
