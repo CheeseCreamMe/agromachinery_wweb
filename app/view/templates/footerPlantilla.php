@@ -1,6 +1,6 @@
 
  <!-- Footer -->
- <footer class="bg-light    py-5">
+ <footer class="    py-5">
  <!-- Container -->
  <div class="container">
  <!-- Row -->
