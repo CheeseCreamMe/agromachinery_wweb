@@ -4,29 +4,31 @@
     </div>
     <div class="container-cards">
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col ">
                 <figure class="imagen-muestra">
                     <img class="imagen-fondo" src="./public/images/banner_home.jpg" alt="imagen">
                     <figcaption class="texto-imagen">
-                        maquinaria
+                        .....
                     </figcaption>
                     <a href="maquinaria">MAQUINARIA</a>
                 </figure>
             </div>
-            <div class="col-md-4 col-sm-6">
+            <div class="col">
                 <figure class="imagen-muestra">
                     <img class="imagen-fondo" src="./public/images/banner_home.jpg" alt="imagen">
                     <figcaption class="texto-imagen">
-                        maquinaria
+                        ......
                     </figcaption>
+                    <a href="agricola">AGRICOLA</a>
                 </figure>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col">
                 <figure class="imagen-muestra">
                     <img class="imagen-fondo" src="./public/images/banner_home.jpg" alt="imagen">
                     <figcaption class="texto-imagen">
-                        maquinaria
+                        ......
                     </figcaption>
+                    <a href="veterinaria">VETERINARIA</a>
                 </figure>
             </div>
         </div>
@@ -34,11 +36,11 @@
 
 </section>
 
-<section class = "banner" >
-    <div class = "content-banner" >
-        <p class = "slogan" >
+<section class="banner">
+    <div class="content-banner">
+        <p class="slogan">
             " Fortaleciendo tu Produccion "
         </p>
-        <button class = "btn-more"> Conocenos... </button>
+        <button class="btn-more" href="about"> Conocenos... </button>
     </div>
 </section>

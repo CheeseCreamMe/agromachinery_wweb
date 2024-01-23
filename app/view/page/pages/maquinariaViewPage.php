@@ -1,136 +1,65 @@
 <div class="container">
-    <div class="row">
-        <?php 
-        if(isset($texto))
-        echo "<h2>".$texto."</h2>";
-    else{
-        echo "<h2>maquinaria</h2>";
-    }
+    <div class="row p-4 text-center">
+        <?php
+        if (isset($texto))
+            echo "<h2>" . $texto . "</h2>";
+        else {
+            echo "<h2>maquinaria</h2>";
+        }
         ?>
     </div>
-    <div class="row p-2">
-        <div class="col">
 
-            <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
+    <div class="container">
+        <div class="row">
+
+
+            <div class="card col ">
+                <img class='mx-auto img-thumbnail' src="https://i.imgur.com/pjITBzX.jpg" width="auto" height="auto" />
+                <div class="card-body text-center mx-auto">
+                    <h5 class="card-title font-weight-bold">Nombre Producto</h5>
+                    <p class="card-text">$299</p>
+                    <div class='row'>
+                        <div class="col"> <a href="#" class="btn btn-success px-auto">
+                                <?php echo BOXFILL; ?>
+                            </a></div>
+                        <div class="col"><a href="#" class="btn btn-primary px-auto">
+                                <?php echo View; ?>
+                            </a></div>
+                    </div>
                 </div>
             </div>
 
-        </div>
-
-        <div class="col">
-        <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col"> <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
-                </div>
-            </div></div>
-
-    </div>
-
-    <div class="row p-2">
-        <div class="col">
-
-            <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
+            <div class="card col ">
+                <img class='mx-auto img-thumbnail' src="https://i.imgur.com/pjITBzX.jpg" width="auto" height="auto" />
+                <div class="card-body text-center mx-auto">
+                    <h5 class="card-title font-weight-bold">Nombre Producto</h5>
+                    <p class="card-text">$299</p>
+                    <div class='row'>
+                        <div class="col"> <a href="#" class="btn btn-success px-auto">
+                                <?php echo BOXFILL; ?>
+                            </a></div>
+                        <div class="col"><a href="#" class="btn btn-primary px-auto">
+                                <?php echo View; ?>
+                            </a></div>
+                    </div>
                 </div>
             </div>
 
-        </div>
-
-        <div class="col">
-        <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
+            <div class="card col">
+                <img class='mx-auto img-thumbnail' src="https://i.imgur.com/pjITBzX.jpg" width="auto" height="auto" />
+                <div class="card-body text-center mx-auto">
+                    <h5 class="card-title font-weight-bold">Nombre Producto</h5>
+                    <p class="card-text">$299</p>
+                    <div class='row'>
+                        <div class="col"> <a href="#" class="btn btn-success px-auto">
+                                <?php echo BOXFILL; ?>
+                            </a></div>
+                        <div class="col"><a href="#" class="btn btn-primary px-auto">
+                                <?php echo View; ?>
+                            </a></div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col"> <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
-                </div>
-            </div></div>
-
-    </div>
-
-    <div class="row p-2">
-        <div class="col">
-
-            <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col">
-        <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col"> <div class="product-card">
-                <img src="./public/images/OIP.jpg" alt="Product Image" class="product-image">
-                <h3 class="product-name">Product Name</h3>
-                <p class="product-price">Price: $100</p>
-                <p class="product-discount">Discount: 20% off</p>
-                <div class="row">
-                    <div class="col"><button class="button btn-buy"> <?php echo BOXFILL; ?></button></div>
-                    <div class="col"><button class="button btn-view"> <?php echo View; ?></button></div>
-                </div>
-            </div></div>
-
     </div>
 </div>
