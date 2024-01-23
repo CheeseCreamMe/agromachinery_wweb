@@ -14,3 +14,69 @@
     height: auto;
     min-height: 27.4vh;
 }
+
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+  }
+  
+  .product-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .product-name {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .product-price,
+  .product-discount {
+    margin-bottom: 5px;
+  }
+  
+  .button {
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-buy {
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 5px;
+  }
+  
+  .btn-view {
+    background-color: #3F51B5;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .button:hover {
+    background-color: #bb2c13;
+  }
+  
+  .view-product-button:hover {
+    background-color: #3546a0;
+  }
+  
+  .button i {
+    font-size: 1.5em;
+  }

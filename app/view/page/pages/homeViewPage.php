@@ -33,3 +33,12 @@
     </div>
 
 </section>
+
+<section class = "banner" >
+    <div class = "content-banner" >
+        <p class = "slogan" >
+            " Fortaleciendo tu Produccion "
+        </p>
+        <button class = "btn-more"> Conocenos... </button>
+    </div>
+</section>
