@@ -1,6 +1,12 @@
 <?php
+if ($peticionAjax)
+{
+ require_once "../connection/bdValues.php";
+}
+else
+{
 require_once "./core/connection/bdValues.php";
-
+}
 class connection
 {
     

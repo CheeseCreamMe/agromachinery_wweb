@@ -1,9 +1,15 @@
 <?php
+if($peticionAjax)
+{
+    require_once "../connection/connecction.php";
+}
+else
+{
 require_once "./core/connection/connecction.php";
-
+}
 class categoriasModel extends connection{
-    public function obtenerCategorias(){
-        $tabla = "categorias";
+    protected function obtenerJsonCategorias(){
+        $tabla ='categoria_maquinaria';
         $datosTabla = self::consultarTodo($tabla);
         $json = array();
             foreach($datosTabla as $categoria)

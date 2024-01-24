@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row p-4 text-center">
         <?php
@@ -63,3 +64,5 @@
         </div>
     </div>
 </div>
+
+<script src="./core/ajax/categoriasAjax.js"></script>
