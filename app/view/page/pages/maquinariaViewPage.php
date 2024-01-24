@@ -137,3 +137,4 @@
 			crossorigin="anonymous"
 		></script>
 <script src="./core/ajax/categoriasAjax.js"></script>
+<script src="./core/ajax/maquinariaAjax.js"></script>
