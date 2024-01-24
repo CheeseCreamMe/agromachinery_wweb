@@ -1,47 +1,207 @@
 .main-conteiner {
-    display: flex;
-    height: fit-content;
+  display: flex;
+  height: fit-content;
 }
 
 .aside {
-    width: 15%;
-    background-color: salmon;
+  width: 15%;
+  background-color: salmon;
 }
 
 .main-content {
-    flex: 1;
-    padding: 20px;
-    height: auto;
-    min-height: 27.4vh;
+  flex: 1;
+  padding: 20px;
+  height: auto;
+  min-height: 27.4vh;
+}
+/*productos*/
+.contenedor {
+	max-width: 120rem;
+	margin: 0 auto;
+}
+.productos {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-bottom: 2rem;
 }
 
+.container-options {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	margin-bottom: 1rem;
+}
 
-.details {
-          border: 1.5px solid grey;
-          color: #212121;
-          width: 100%;
-          height: auto;
-          box-shadow: 0px 0px 10px #212121;
-      }
+.container-options span {
+	color: #777;
+	background-color: #fff;
+	padding: 0.7rem 3rem;
+	font-size: 1.4rem;
+	text-transform: capitalize;
+	border-radius: 2rem;
+	cursor: pointer;
+}
 
-      .cart {
-          background-color: #212121;
-          color: white;
-          margin-top: 10px;
-          font-size: 12px;
-          font-weight: 900;
-          width: 100%;
-          height: 39px;
-          padding-top: 9px;
-          box-shadow: 0px 5px 10px  #212121;
-      }
+.container-options span:hover {
+	background-color: var(--primary-color);
+	color: #fff;
+}
 
-      .img-thumbnail {
-          border: none;
-      }
+.container-options span.active {
+	background-color: var(--primary-color);
+	color: #fff;
+}
 
-      .card {
-          box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
-          border-radius: 5px;
-          padding-bottom: 10px;
-      }
+/* Products */
+.productos{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 3fr));
+	gap: 3rem;
+}
+
+.card-product {
+	background-color: #fff;
+	padding: 2rem 3rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.container-img {
+	position: relative;
+}
+
+.container-img img {
+	width: 100%;
+}
+
+.container-img .discount {
+	position: absolute;
+	left: 0;
+	background-color: var(--primary-color);
+	color: #fff;
+	padding: 2px 1.2rem;
+	border-radius: 1rem;
+	font-size: 1.2rem;
+}
+
+.card-product:hover .discount {
+	background-color: #000;
+}
+
+.button-group {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	position: absolute;
+	top: 0;
+	right: -3rem;
+	z-index: -1;
+	transition: all 0.4s ease;
+}
+
+.button-group span {
+	border: 1px solid var(--primary-color);
+	padding: 0.8rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+
+.button-group span:hover {
+	background-color: var(--primary-color);
+}
+
+.button-group span i {
+	font-size: 1.5rem;
+	color: var(--primary-color);
+}
+
+.button-group span:hover i {
+	color: #fff;
+}
+
+.card-product:hover .button-group {
+	z-index: 0;
+	right: -1rem;
+}
+
+.content-card-product {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(4, min-content);
+	row-gap: 1rem;
+}
+
+.stars {
+	grid-row: 1/2;
+	grid-column: 1/-1;
+}
+
+.stars i {
+	font-size: 1.3rem;
+	color: var(--primary-color);
+}
+
+.content-card-product h3 {
+	grid-row: 2/3;
+	grid-column: 1/-1;
+
+	font-weight: 400;
+	font-size: 1.6rem;
+	margin-bottom: 1rem;
+	cursor: pointer;
+}
+
+.content-card-product h3:hover {
+	color: var(--primary-color);
+}
+
+.add-cart {
+	justify-self: start;
+	border: 2px solid var(--primary-color);
+	padding: 1rem;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.4s ease;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.add-cart:hover {
+	background-color: var(--primary-color);
+}
+
+.add-cart i {
+	font-size: 1.5rem;
+	color: var(--primary-color);
+}
+
+.add-cart:hover i {
+	color: #fff;
+}
+
+.content-card-product .price {
+	justify-self: end;
+	align-self: center;
+
+	font-size: 1.7rem;
+	font-weight: 600;
+}
+
+.content-card-product .price span {
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-decoration: line-through;
+	color: #777;
+	margin-left: 0.5rem;
+}

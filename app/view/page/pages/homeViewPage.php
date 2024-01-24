@@ -1,3 +1,5 @@
+<title>home || bienvenido</title>
+
 <section class="container">
     <div class="row" style="min-height:25px;">
 

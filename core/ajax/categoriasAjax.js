@@ -10,6 +10,17 @@ function consultarCategoriasPhp(select)
             // Parseamos la respuesta a JSON
             var categorias = JSON.parse(response);
 
+            // Limpiamos el select
+            $(select).empty();
+
+            // Añadimos una opción nula
+            var optionNula = $('<option/>')
+                .attr('value', '')
+                .text('Seleccione una categoría');
+
+            // La añadimos al select
+            $(select).append(optionNula);
+
             // Recorremos el array de categorías
             categorias.forEach(function(categoria)
             {

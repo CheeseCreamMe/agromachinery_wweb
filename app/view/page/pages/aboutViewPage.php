@@ -1,3 +1,5 @@
+<title>Sobre nosotros</title>
+
 <section class="container">
     <div class="row p-2">
         <h2>Acerca de nosostros</h2>

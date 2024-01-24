@@ -2,7 +2,7 @@
 <footer class="    py-5">
     <!-- Container -->
     <div class="container">
-        <div style=" min-height:10px;" class="row"> </div>
+        <div style=" min-height:.625rem;" class="row"> </div>
         <!-- Row -->
         <div class="row">
             <!-- Col -->
@@ -10,7 +10,7 @@
                 <!-- Heading -->
                 <h5 class="text-uppercase mb-4">About</h5>
                 <!-- Text -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
+                <p>Nuestro total compromiso con nuestros clientes, facilitando soluciones inteligentes he integrales, para lograr satisfacer plenamente al productor agrícola, con productos y servicios de primera categoría, con personal competente y motivado, con procesos eficientes para lograr una optima rentabilidad.</p>
             </div>
             <!-- Col -->
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0">

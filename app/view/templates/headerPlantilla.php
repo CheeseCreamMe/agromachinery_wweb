@@ -1,4 +1,7 @@
 <html data-bs-theme="dark">
+<head>
+<link rel="icon" href="./public/images/icons/logo-agromachienry.webp">
+<link rel="stylesheet" href="<?php echo CSS; ?>template.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -36,3 +39,4 @@
                 </nav>
             </div>
         </header>
+</head>
