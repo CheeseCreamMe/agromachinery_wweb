@@ -1,4 +1,4 @@
-//funcion para carhar categorias
+//funcion para cargar categorias
 function consultarCategoriasPhp(select)
 {
     $.ajax
@@ -38,3 +38,8 @@ function consultarCategoriasPhp(select)
 
 // Llamamos a la función pasando el selector del select
 consultarCategoriasPhp('#mySelect');
+
+//metodo para almacenar info en el local storage siempre que el select de categorias cambie de opcion seleccionada
+$("#mySelect").change(function(){
+    localStorage.setItem('categoriaSeleccionada', $(this).val());
+});
