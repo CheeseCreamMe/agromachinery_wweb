@@ -7,7 +7,7 @@ if ($peticionAjax) {
 class connection
 {
 
-    public function Cn()
+    protected function Cn()
     {
         $enlace = new PDO(SGBD, USER, PASSWORD);
         return $enlace;

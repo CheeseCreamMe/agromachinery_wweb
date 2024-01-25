@@ -1,7 +1,7 @@
 <?php
-const SUPPORT_NUMBER = "xxx--xx";
-const DIRECCION = "HOLA MUNDO CALLE XD";
-const E_MAIL = "XXX@XXX";
+const SUPPORT_NUMBER = "(503) 2408-0740";
+const DIRECCION = "Santa Ana, Santa AnaEl Salvador";
+const E_MAIL = "info@agromachinery.com";
 
 //svg
 

@@ -1,10 +1,7 @@
 <?php
-if($peticionAjax)
-{
+if ($peticionAjax) {
     require_once "../../app/model/categoriasModelo.php";
-}
-else
-{
+} else {
     require_once "./app/model/categoriasModelo.php";
 }
 class categoriaController extends categoriasModel
@@ -14,10 +11,13 @@ class categoriaController extends categoriasModel
 
         try {
             $jsonCtaegorias = self::obtenerJsonCategorias(); //code...
-
         } catch (\Throwable $th) {
-            $jsonCtaegorias = "no hay categorias registradas"; //throw $th;
+            $jsonCtaegorias[] = array(
+                'codigo' => '0',
+                'nombre' => 'parece no hay categorias registradas',
+            ); //throw $th;
         }
+
         return $jsonCtaegorias;
     }
 

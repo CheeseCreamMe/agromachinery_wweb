@@ -13,12 +13,18 @@ class maquinariaController extends maquinariaModel
     {
 
         try {
-            $jsonCtaegorias = self::obtenerJsonMaquinaria(); //code...
+            $jsonMaquinaria = self::obtenerJsonMaquinaria(); //code...
 
         } catch (\Throwable $th) {
-            $jsonCtaegorias = "no hay categorias registradas"; //throw $th;
+            $jsonMaquinaria[] = array(
+                'codigo' => '000',
+                'nombre' => 'no hay nada aqui',
+                'precio' => '00',
+                'descripcion' => 'no hay productos requistrados',
+                'imagen' => './public/images/productos/default.png',
+            );
         }
-        return $jsonCtaegorias;
+        return $jsonMaquinaria;
     }
 
 

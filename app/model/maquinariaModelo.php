@@ -12,14 +12,14 @@ class maquinariaModel extends connection{
         $tabla ='producto_maquinaria';
         $datosTabla = self::consultarTodo($tabla);
         $json = array();
-            foreach($datosTabla as $categoria)
+            foreach($datosTabla as $maquina)
             {
                 $json[] = array(
-                    'codigo' => $categoria['id'],
-                    'nombre' => $categoria['nombre'],
-                    'precio' => $categoria['precio'],
-                    'descripcion' => $categoria['descripcion'],
-                    'imagen' => $categoria['imagen'],
+                    'codigo' => $maquina['id'],
+                    'nombre' => $maquina['nombre'],
+                    'precio' => $maquina['precio'],
+                    'descripcion' => $maquina['descripcion'],
+                    'imagen' => $maquina['imagen'],
                 );
             }
         return $json;
