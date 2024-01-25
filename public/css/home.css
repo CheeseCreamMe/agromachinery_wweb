@@ -1,13 +1,3 @@
-.btn-more {
-    border: none;
-    background: var(--background-color);
-    border-radius: 20px;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 1rem;
-    cursor: pointer;
-}
 .container-cards {
     margin: 0;
     display: grid;
@@ -74,7 +64,6 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    z-index: -1;
 }
 .new-banner {
 	background-image: linear-gradient(100deg, #000000, #00000020),
@@ -90,7 +79,6 @@
     width: 100%;
     height: 100%;
 	position: absolute;
-    z-index: -1;
 }
 
 .content-banner {

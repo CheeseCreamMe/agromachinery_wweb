@@ -17,7 +17,7 @@
             </div>
             <div class="col">
                 <figure class="imagen-muestra">
-                    <img class="imagen-fondo" src="./public/images/banner_home.jpg" alt="imagen">
+                    <img class="imagen-fondo" src="./public/images/agricola_banner.jpg" alt="imagen">
                     <figcaption class="texto-imagen">
                         ......
                     </figcaption>
@@ -26,7 +26,7 @@
             </div>
             <div class="col">
                 <figure class="imagen-muestra">
-                    <img class="imagen-fondo" src="./public/images/banner_home.jpg" alt="imagen">
+                    <img class="imagen-fondo" src="./public/images/veterinaria_banner.jpg" alt="imagen">
                     <figcaption class="texto-imagen">
                         ......
                     </figcaption>
@@ -38,11 +38,19 @@
 
 </section>
 
-<section class="banner">
+<section class="banner"> 
+   <div class="back-filter">
     <div class="content-banner">
         <p class="slogan">
             " Fortaleciendo tu Produccion "
         </p>
-        <button class="btn-more" href="about"> Conocenos... </button>
+        <button class="btn-more" onclick="navigateToAbout()"> Conocenos... </button>
+    </div> 
     </div>
 </section>
+
+<script>
+    function navigateToAbout() {
+        window.location.href = 'about';
+    }
+</script>
