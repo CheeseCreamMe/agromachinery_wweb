@@ -1,10 +1,7 @@
 <?php
-if($peticionAjax)
-{
+if ($peticionAjax) {
     require_once "../../app/model/maquinariaModelo.php";
-}
-else
-{
+} else {
     require_once "./app/model/maquinariaModelo.php";
 }
 class maquinariaController extends maquinariaModel
@@ -27,10 +24,10 @@ class maquinariaController extends maquinariaModel
         return $jsonMaquinaria;
     }
 
-    public function consultarCOnFiltroController($filtro, $valor)
+    public function consultarCOnFiltroController($valor)
     {
         try {
-            $josnMaquinaria = self::onbtenerJsonMaquienariaUnFiltro($filtro, $valor);
+            $jsonMaquinaria = self::onbtenerJsonMaquienariaUnFiltro($valor);
         } catch (\Throwable $th) {
             $jsonMaquinaria[] = array(
                 'codigo' => '000',
@@ -38,7 +35,22 @@ class maquinariaController extends maquinariaModel
                 'precio' => '00',
                 'descripcion' => 'no hay productos rque coincidan',
                 'imagen' => './public/images/productos/default.png',
-            );//throw $th;
+            ); //throw $th;
         }
+    
+        if (empty($jsonMaquinaria[0])) {
+            // Agregar objeto con imagen por defecto si el arreglo está vacío
+            $jsonMaquinaria[] = array(
+
+                    
+                    'codigo' => '000',
+                    'nombre' => 'no hay coincidencias',
+                    'precio' => '00',
+                    'descripcion' => 'no hay productos rque coincidan',
+                    'imagen' => './public/images/productos/default.png'
+            );
+        }
+    
+        return $jsonMaquinaria;
     }
 }

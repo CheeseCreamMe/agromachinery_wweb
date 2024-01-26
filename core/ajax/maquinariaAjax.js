@@ -1,37 +1,50 @@
-consultarMaquinariaPhp();
-buscarConFiltro();
-// Añade el controlador del evento 'unload' a la ventana del navegador
+cargarPagina();
+$("#mySelect").change(cargarPagina);
+
 window.addEventListener("unload", handlePageUnload);
-// Función que se ejecutará al recargar la página
+
 function handlePageUnload() {
-  // Borra los datos del local storage
   localStorage.clear();
+}
+
+function cargarPagina() {
+  const filtro = localStorage.getItem("categoriaSeleccionada");
+  if (filtro === null ) {
+    consultarMaquinariaPhp();
+  } else if(filtro !==null && filtro>0) {
+    buscarConFiltro(filtro);
+  }
 }
 
 function consultarMaquinariaPhp() {
   $.ajax({
     url: "http://localhost/agromachinery_wweb/core/ajax/maquinariaAjax.php",
-    type: "get",
+    type: "GET",
     success: function (response) {
-      let products = JSON.parse(response); // parse the JSON string
-      displayProducts(products);
+      displayProducts(JSON.parse(response));
+      
     },
   });
 }
 
-function buscarConFiltro() {
-  let filtro = localStorage.getItem("categoriaSeleccionada");
-
-  if (filtro != 0) {
-    console.log("se ha seleccionado una categoria" + filtro);
-  }
+function buscarConFiltro(filtro) {
+  $.ajax({
+    url: "http://localhost/agromachinery_wweb/core/ajax/maquinariaAjax.php",
+    type: "POST",
+    data: { opcion:"buscarCategoria", "filtro":filtro },
+    success: function (response) {
+      displayProducts(JSON.parse(response));
+    },
+  });
 }
-
 function displayProducts(products) {
-  let productContainer = document.querySelector(".contenedor.productos");
+  const productContainer = document.querySelector(".contenedor.productos");
+  
+  // Vaciar el contenido del contenedor
+  productContainer.innerHTML = '';
 
   products.forEach((product) => {
-    let productCard = `
+    productContainer.insertAdjacentHTML("beforeend", `
             <div class="card-product">
                 <div class="container-img">
                     <img
@@ -66,8 +79,6 @@ function displayProducts(products) {
                     <p class="price">$${product.precio}</p>
                 </div>
             </div>
-        `;
-
-    productContainer.insertAdjacentHTML("beforeend", productCard);
+        `);
   });
 }

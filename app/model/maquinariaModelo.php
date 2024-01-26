@@ -23,24 +23,29 @@ class maquinariaModel extends connection
         return $json;
     }
 
-    protected function onbtenerJsonMaquienariaUnFiltro($filtro, $valor)
+    protected function onbtenerJsonMaquienariaUnFiltro($valor)
     {
-        $respuesta = self::Cn()->prepare("SELECT * from producto_mauinaria where $filtro = :valor");
-        $respuesta->bindParam(':valor', $valor);
+        $respuesta = self::Cn()->prepare("
+            SELECT pm.id, pm.nombre, pm.precio, pm.descripcion, pm.imagen, cm.nombre as categoria_nombre
+            FROM producto_maquinaria pm
+            JOIN categoria_producto cp ON pm.id = cp.producto_id
+            JOIN categoria_maquinaria cm ON cp.categoria_id = cm.id
+            WHERE cm.id =" . $valor);
         $respuesta->execute();
-        $respuesta->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($respuesta as $maquina) {
+        $rows = $respuesta->fetchAll(PDO::FETCH_ASSOC);
+    
+        $json = [];
+        foreach ($rows as $maquina) {
             $json[] = array (
                 'codigo' => $maquina['id'],
                 'nombre' => $maquina['nombre'],
                 'precio' => $maquina['precio'],
                 'descripcion' => $maquina['descripcion'],
                 'imagen' => $maquina['imagen'],
+                'categoria_nombre' => $maquina['categoria_nombre'],
             );
-
-            return $json;
-
         }
+    
+        return $json;
     }
 }

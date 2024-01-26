@@ -16,7 +16,7 @@ function consultarCategoriasPhp(select)
             // Añadimos una opción nula
             var optionNula = $('<option/>')
                 .attr('value', '')
-                .text('Seleccione una categoría');
+                .text('sin categorias');
 
             // La añadimos al select
             $(select).append(optionNula);
