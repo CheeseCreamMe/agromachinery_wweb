@@ -42,10 +42,4 @@ class connection
         return $respuesta->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function select($sql)
-    {
-        $respuesta = self::Cn()->prepare($sql);
-        $respuesta->execute();
-        return $respuesta;
-    }
 }

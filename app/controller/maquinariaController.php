@@ -20,12 +20,25 @@ class maquinariaController extends maquinariaModel
                 'codigo' => '000',
                 'nombre' => 'no hay nada aqui',
                 'precio' => '00',
-                'descripcion' => 'no hay productos requistrados',
+                'descripcion' => 'no hay productos registrados',
                 'imagen' => './public/images/productos/default.png',
             );
         }
         return $jsonMaquinaria;
     }
 
-
+    public function consultarCOnFiltroController($filtro, $valor)
+    {
+        try {
+            $josnMaquinaria = self::onbtenerJsonMaquienariaUnFiltro($filtro, $valor);
+        } catch (\Throwable $th) {
+            $jsonMaquinaria[] = array(
+                'codigo' => '000',
+                'nombre' => 'no hay coincidencias',
+                'precio' => '00',
+                'descripcion' => 'no hay productos rque coincidan',
+                'imagen' => './public/images/productos/default.png',
+            );//throw $th;
+        }
+    }
 }
