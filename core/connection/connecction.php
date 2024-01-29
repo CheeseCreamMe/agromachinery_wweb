@@ -42,4 +42,11 @@ class connection
         return $respuesta->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function consultaPerzonlaizada($sql)
+    {
+        $respuesta = self::Cn()->prepare($sql);
+        $respuesta->execute();
+        return $respuesta->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
