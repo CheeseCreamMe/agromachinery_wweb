@@ -44,6 +44,14 @@ function displayProducts(products) {
   productContainer.innerHTML = '';
 
   products.forEach((product) => {
+    if(product.descuento == null ||  product.descuento === 0){
+      descuento = "0%";
+      precio = product.precio;
+    }
+    else{
+      descuento = 'ahorras: $'+(product.precio-product.descuento);
+      precio =  product.descuento;
+    }
     productContainer.insertAdjacentHTML("beforeend", `
             <div class="card-product">
                 <div class="container-img">
@@ -51,7 +59,7 @@ function displayProducts(products) {
                         src="${product.imagen}"
                         alt="Cafe incafe-ingles.jpg"
                     />
-                    <span class="discount"></span>
+                    <span class="discount">${descuento}</span>
                     <div class="button-group">
                         <span>
                             <i class="fa-regular fa-eye"></i>
@@ -76,7 +84,7 @@ function displayProducts(products) {
                     <span class="add-cart">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </span>
-                    <p class="price">$${product.precio}</p>
+                    <p class="price">$${precio}</p>
                 </div>
             </div>
         `);

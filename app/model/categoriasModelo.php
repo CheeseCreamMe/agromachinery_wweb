@@ -9,7 +9,7 @@ require_once "./core/connection/connecction.php";
 }
 class categoriasModel extends connection{
     protected function obtenerJsonCategorias(){
-        $tabla ='categoria_maquinaria';
+        $tabla ='categoria';
         $datosTabla = self::consultarTodo($tabla);
         $json = array();
             foreach($datosTabla as $categoria)

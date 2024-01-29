@@ -8,7 +8,7 @@ class maquinariaModel extends connection
 {
     protected function obtenerJsonMaquinaria()
     {
-        $tabla = 'producto_maquinaria';
+        $tabla = 'producto';
         $datosTabla = self::consultarTodo($tabla);
         $json = array();
         foreach ($datosTabla as $maquina) {
@@ -16,7 +16,10 @@ class maquinariaModel extends connection
                 'codigo' => $maquina['id'],
                 'nombre' => $maquina['nombre'],
                 'precio' => $maquina['precio'],
+                'descuento' => $maquina['precio_descuento'],
                 'descripcion' => $maquina['descripcion'],
+                'marca' => $maquina['marca_id'],
+                'categoria' => $maquina['categoria_id'],
                 'imagen' => $maquina['imagen'],
             );
         }
