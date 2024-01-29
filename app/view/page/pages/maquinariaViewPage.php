@@ -9,9 +9,18 @@
 		}
 		?>
 	</div>
-	<div class="row p-4">
+
+	<div class="row p-2">
 		<div class="col"></div>
-		<div class="col-md-5">
+		<div class="colmd-5">
+			<h3>Fitrar por marcas:</h3>
+		</div>
+		<div class="col"></div>
+	</div>
+
+	<div class="row p-2">
+		<div class="col"></div>
+		<div class="colmd-5">
 			<!--select de categorias en la parte superior-->
 			<select class="form-select" id="mySelect">
 			</select>
@@ -27,5 +36,5 @@
 		<!--fin de laseccion de productos-->
 	</div>
 	<!--js necesario--->
-	<script src="./core/ajax/categoriasAjax.js"></script>
+	<script src="./core/ajax/marcaAjax.js"></script>
 	<script src="./core/ajax/maquinariaAjax.js"></script>

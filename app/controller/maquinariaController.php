@@ -24,14 +24,14 @@ class maquinariaController extends maquinariaModel
         return $jsonMaquinaria;
     }
 
-    public function consultarCOnFiltroController($valor)
+    public function buscarPorMarca($valor)
     {
         try {
-            $jsonMaquinaria = self::onbtenerJsonMaquienariaUnFiltro($valor);
+            $jsonMaquinaria = self::buscarProductoPorMarcaJson($valor);
         } catch (\Throwable $th) {
             $jsonMaquinaria[] = array(
                 'codigo' => '000',
-                'nombre' => 'no hay coincidencias',
+                'nombre' => 'Ocurrio un error',
                 'precio' => '00',
                 'descripcion' => 'no hay productos rque coincidan',
                 'imagen' => './public/images/productos/default.png',

@@ -11,17 +11,7 @@
 							<li>Teléfono: 123-456-7890</li>
 							<li>EmaiL: baristas@support.com</li>
 						</ul>
-						<div class="social-icons">
-							<span class="facebook">
-								<i class="fa-brands fa-facebook-f"></i>
-							</span>
-							<span class="twitter">
-								<i class="fa-brands fa-twitter"></i>
-							</span>
-							<span class="instagram">
-								<i class="fa-brands fa-instagram"></i>
-							</span>
-						</div>
+						
 					</div>
 
 					<div class="information">
@@ -33,10 +23,20 @@
 						</ul>
 					</div>
 				</div>
-
+<div class="social-icons">
+							<span class="facebook">
+								<i class="fa-brands fa-facebook-f"></i>
+							</span>
+							<span class="twitter">
+								<i class="fa-brands fa-twitter"></i>
+							</span>
+							<span class="instagram">
+								<i class="fa-brands fa-instagram"></i>
+							</span>
+						</div>
 				<div class="copyright">
 					<p>
-						Desarrollado por Programación para el mundo &copy; 2022
+						Desarrollado por <a href="https://github.com/CheeseCreamMe">CheeseCreamMe</a> &copy; 2022
 					</p>
 				</div>
 			</div>
