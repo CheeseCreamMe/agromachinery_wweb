@@ -5,8 +5,8 @@ $instancia = new maquinariaController();
 
 if(isset($_POST['opcion']))
 {
-    $Categoria = $_POST["filtro"];
-    $tabla = $instancia->consultarCOnFiltroController($Categoria);
+    $Marca = $_POST["filtro"];
+    $tabla = $instancia->buscarPorMarca($Marca);
     $total = json_encode($tabla);
     echo $total;
 }

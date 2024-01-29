@@ -8,7 +8,7 @@ function handlePageUnload() {
 }
 
 function cargarPagina() {
-  const filtro = localStorage.getItem("categoriaSeleccionada");
+  const filtro = localStorage.getItem("marcaSeleccionada");
   if (filtro === null ) {
     consultarMaquinariaPhp();
   } else if(filtro !==null && filtro>0) {
@@ -31,9 +31,11 @@ function buscarConFiltro(filtro) {
   $.ajax({
     url: "http://localhost/agromachinery_wweb/core/ajax/maquinariaAjax.php",
     type: "POST",
-    data: { opcion:"buscarCategoria", "filtro":filtro },
+    data: { opcion:"buscarMarca", "filtro":filtro },
     success: function (response) {
+      console.log(response);
       displayProducts(JSON.parse(response));
+      
     },
   });
 }
