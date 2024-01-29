@@ -1,6 +1,6 @@
 <?php
 const SERVER="localhost";
-const DB="agromachineryDb";
+const DB="agomachinery";
 const USER="root";
 const PASSWORD="";
 
