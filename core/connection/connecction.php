@@ -35,18 +35,38 @@ class connection
         return $cadena;
     }
 
-    public function consultarTodo($tabla)
+    protected function consultarTodo($tabla)
     {
         $respuesta = self::Cn()->prepare("SELECT * FROM " . $tabla);
         $respuesta->execute();
         return $respuesta->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function consultaPerzonlaizada($sql)
+    protected function consultaPerzonlaizada($sql)
     {
         $respuesta = self::Cn()->prepare($sql);
         $respuesta->execute();
         return $respuesta->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function crearJsonPlantilla($datosTabla)
+    {
+        $json = array();
+        foreach ($datosTabla as $producto) {
+            $imagen = $producto["imagen"] ? $producto["imagen"] : "./public/images/productos/default-product-image.jpg";
+            
+            $json[] = array(
+                'codigo' => $producto['id'],
+                'nombre' => $producto['nombre'],
+                'precio' => $producto['precio'],
+                'descuento' => $producto['precio_descuento'],
+                'descripcion' => $producto['descripcion'],
+                'marca' => $producto['marca_id'],
+                'categoria' => $producto['categoria_id'],
+                'imagen' =>$imagen,
+            );
+        }
+        return $json;
     }
 
 }

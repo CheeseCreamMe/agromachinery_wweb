@@ -23,6 +23,40 @@ class maquinariaController extends maquinariaModel
         }
         return $jsonMaquinaria;
     }
+    public function consultarVeterinariaController()
+    {
+
+        try {
+            $jsonVeterinaria = self::obtenerJsonVeterinaria(); //code...
+
+        } catch (\Throwable $th) {
+            $jsonVeterinaria[] = array(
+                'codigo' => '000',
+                'nombre' => 'no hay nada aqui',
+                'precio' => '00',
+                'descripcion' => 'no hay productos registrados',
+                'imagen' => './public/images/productos/default.png',
+            );
+        }
+        return $jsonVeterinaria;
+    }
+    public function consultarAgricolaController()
+    {
+
+        try {
+            $jsonAgricola = self::obtenerJsonAgricola(); //code...
+
+        } catch (\Throwable $th) {
+            $jsonAgricola[] = array(
+                'codigo' => '000',
+                'nombre' => 'no hay nada aqui',
+                'precio' => '00',
+                'descripcion' => 'no hay productos registrados',
+                'imagen' => './public/images/productos/default.png',
+            );
+        }
+        return $jsonAgricola;
+    }
 
     public function buscarPorMarca($valor)
     {

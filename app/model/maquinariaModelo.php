@@ -15,19 +15,7 @@ class maquinariaModel extends connection
         WHERE c.nombre = 'veterinaria';";
 
         $datosTabla = $this->consultaPerzonlaizada($consulta);
-        $json = array();
-        foreach ($datosTabla as $productoVeterinaria) {
-            $json[] = array(
-                'codigo' => $productoVeterinaria['id'],
-                'nombre' => $productoVeterinaria['nombre'],
-                'precio' => $productoVeterinaria['precio'],
-                'descuento' => $productoVeterinaria['precio_descuento'],
-                'descripcion' => $productoVeterinaria['descripcion'],
-                'marca' => $productoVeterinaria['marca_id'],
-                'categoria' => $$productoVeterinaria['categoria_id'],
-                'imagen' => $productoVeterinaria['imagen'],
-            );
-        }
+        $json = self::crearJsonPlantilla($datosTabla);
         return $json;
     }
 
@@ -40,19 +28,7 @@ class maquinariaModel extends connection
         WHERE c.nombre = 'Agrícola';";
 
         $datosTabla = $this->consultaPerzonlaizada($consulta);
-        $json = array();
-        foreach ($datosTabla as $productoAgricola) {
-            $json[] = array(
-                'codigo' => $productoAgricola['id'],
-                'nombre' => $productoAgricola['nombre'],
-                'precio' => $productoAgricola['precio'],
-                'descuento' => $productoAgricola['precio_descuento'],
-                'descripcion' => $productoAgricola['descripcion'],
-                'marca' => $productoAgricola['marca_id'],
-                'categoria' => $productoAgricola['categoria_id'],
-                'imagen' => $productoAgricola['imagen'],
-            );
-        }
+        $json = self::crearJsonPlantilla($datosTabla);
         return $json;
     }
 
@@ -65,38 +41,14 @@ class maquinariaModel extends connection
         WHERE c.nombre = 'Maquinaria';";
 
         $datosTabla = $this->consultaPerzonlaizada($consulta);
-        $json = array();
-        foreach ($datosTabla as $productoMaquinaria) {
-            $json[] = array(
-                'codigo' => $productoMaquinaria['id'],
-                'nombre' => $productoMaquinaria['nombre'],
-                'precio' => $productoMaquinaria['precio'],
-                'descuento' => $productoMaquinaria['precio_descuento'],
-                'descripcion' => $productoMaquinaria['descripcion'],
-                'marca' => $productoMaquinaria['marca_id'],
-                'categoria' => $productoMaquinaria['categoria_id'],
-                'imagen' => $productoMaquinaria['imagen'],
-            );
-        }
+        $json = self::crearJsonPlantilla($datosTabla);
         return $json;
     } 
     protected function obtenerJsonTodosLosProductos()
     {
         $tabla = 'producto';
         $datosTabla = self::consultarTodo($tabla);
-        $json = array();
-        foreach ($datosTabla as $producto) {
-            $json[] = array(
-                'codigo' => $producto['id'],
-                'nombre' => $producto['nombre'],
-                'precio' => $producto['precio'],
-                'descuento' => $producto['precio_descuento'],
-                'descripcion' => $producto['descripcion'],
-                'marca' => $producto['marca_id'],
-                'categoria' => $producto['categoria_id'],
-                'imagen' => $producto['imagen'],
-            );
-        }
+        $json = self::crearJsonPlantilla($datosTabla);
         return $json;
     }
     protected function buscarProductoPorMarcaJson($valor)
