@@ -1,6 +1,6 @@
 <h1>Code</h1>
 <h2>Languejes</h2>
-<p>JS</p>
+   <img src="https://freesvg.org/img/js_logo.png"> <p>JS</p>
 <p>PHP</p>
 <p>html</p>
 <p>css</p>
@@ -75,21 +75,15 @@
                 └── template.css
                 └── vars.css
         └── 📁images
-            └── agricola_banner.jpg
-            └── banner_home.jpg
+            └── //iamgenes de la plantilla html
             └── 📁icons
                 └── logo-agromachienry.webp
             └── logo.jpg
             └── 📁marca
-                └── bayerLogo.jfif
-                └── jhonDeere.png
-                └── masseyLogo.jpg
+                └── //imagenes de las marcas
             └── new_banner.jpg
             └── 📁productos
-                └── default-product-image.jpg
-                └── default.png
-                └── OIP.jpg
-            └── veterinaria_banner.jpg
+                └──//imagenes de productos
         └── 📁values
             └── values.php
     └── README.md
