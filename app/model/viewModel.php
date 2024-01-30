@@ -1,6 +1,6 @@
 <?php
 class ViewModel {
-    protected $white_list =[ 'home','error','maquinaria','agricola','about'];
+    protected $white_list =[ 'home','error','maquinaria','agricola','about','products'] ;
     protected function obtenerPagina($vista) {
     
     $white_list = $this->white_list;
