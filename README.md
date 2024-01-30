@@ -1,14 +1,13 @@
 <h1>Code</h1>
 <h2>Languejes</h2>
-   <img src="https://freesvg.org/img/js_logo.png"> <p>JS</p>
-<p>PHP</p>
-<p>html</p>
-<p>css</p>
-<p>Mysql</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/200px-JavaScript-logo.png" alt="JS"><strong>JS</strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/300px-PHP-logo.svg.png" alt="PHP" width="200"><strong>PHP</strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/200px-HTML5_logo_and_wordmark.svg.png?20160623125136" alt="HTML" width="200"><strong>HTML</strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/200px-CSS3_logo_and_wordmark.svg.png?20160623125136" alt="CSS" width="200"><strong>CSS</strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mysql.svg/75px-Mysql.svg.png" alt="MySQL" width="200"><strong>MySQL</strong></p>
 <h2>frameworks</h2>
-<p>Jquery</p>
-<p>bootstrap</p>
-
+<p><strong>Jquery:</strong> <a href="https://jquery.com/" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/JQuery-Logo.svg/375px-JQuery-Logo.svg.png" alt="JQuery" width="200"></a></p>
+<p><strong>Bootstrap:</strong> <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/200px-Bootstrap_logo.svg.png?20160623125136" alt="Bootstrap" width="200"></a></p>
 
 <p>jquery</p>
 <h1>Folder Structure</h1>
