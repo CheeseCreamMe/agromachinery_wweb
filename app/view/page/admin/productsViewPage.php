@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -24,15 +24,17 @@
                 <div class="col justify-content-center">
                     <div class="col-md-4">
                         <!--contenedor de formulario ty resultados de busqueda-->
-                        <div class=" justify-content-center" id="respuesta"><!--seccion paravmostrar los resultados de busqueda por nombre--></div>
+                        <div class=" justify-content-center" id="respuesta">
+                            <!--seccion para mostrar los resultados de busqueda por nombre-->
+                        </div>
                     </div>
                     <div class="col'md'5">
                         <!--boton para mostrar el formulario para poder agregar un nuevo producto-->
-                    
-                        <div class=" row d-grid gap-2 p-4">
-            <button id="agregarEs" type="sumit" class="btn btn-primary btn-block text-center"><i
-                    class="bi bi-plus-circle-fill"></i> Agregar alumno</button>
-        </div>
+
+
+                        <button id="agregarEs" type="sumit" class="btn btn-primary btn-block text-center"><i
+                                class="bi bi-plus-circle-fill"></i> Agregar Producto</button>
+
                         <div class="card" id="showForm">
                             <div class="card-body">
                                 <h1>Agregar nuevo Producto</h1>
@@ -57,7 +59,7 @@
                                     <div class="form-group"> <select class='form-control' id="product-brand">
                                             <option value="">Seleccione una marca</option>
                                             <!-- Opciones de marcas aqui -->
-                                        </select> </div> <button class='btn btn-primary'>Agregar Producto</button>
+                                        </select> </div> <button class='btn btn-primary' type="submit" id="add-form">Agregar Producto</button>
                                 </form>
                             </div>
                         </div>
@@ -74,3 +76,25 @@
 </body>
 
 </html>
+<!--jquery-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+    console.log("xd");
+    $('#showForm').hide();
+
+    $('#agregarEs').click(function () {
+        $('#showForm').is(':hidden') ? $('#showForm').show() : $('#showForm').hide();
+    })
+
+    $(document).ready(function () {
+        //definimos el arreglo de datos que deseamos enviar atraves de ajax
+        
+        //metodo abreviado de jquery para enviar solicitudes ajax
+        $.get('.././core/ajax/maquinariaAjax.php', 
+            function (response) {
+                console.log(response);
+            });
+    })
+</script>
