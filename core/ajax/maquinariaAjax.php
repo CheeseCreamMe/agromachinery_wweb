@@ -13,9 +13,9 @@ if(isset($_POST['opcion']))
     $total = json_encode($tabla);
     echo $total; 
     }
-    if($_POST['opcion']=="agreagar")
+    if($_POST['opcion']=="agregar")
     {
-        echo "se ha agregado";
+        echo "se ha agregado";var_dump($_POST);
     }
 
 }

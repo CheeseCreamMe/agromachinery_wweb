@@ -39,7 +39,7 @@
                             <div class="card-body">
                                 <h1>Agregar nuevo Producto</h1>
                                 <!--formulario para agregar productos-->
-                                <form id='product-form' class="d-grid gap-2">
+                                <form id="add-form" class="d-grid gap-2">
                                     <div class="form-group"> <input class='form-control' type="text"
                                             placeholder='ingrese el nombre del producto' id="product-name"> </div>
                                     <div class="form-group"> <input class='form-control' type="number"
@@ -59,7 +59,8 @@
                                     <div class="form-group"> <select class='form-control' id="product-brand">
                                             <option value="">Seleccione una marca</option>
                                             <!-- Opciones de marcas aqui -->
-                                        </select> </div> <button class='btn btn-primary' type="submit" id="add-form">Agregar Producto</button>
+                                        </select>
+                                     </div> <button class='btn btn-primary' type="submit" >Agregar Producto</button>
                                 </form>
                             </div>
                         </div>
@@ -86,13 +87,23 @@
 
     $('#agregarEs').click(function () {
         $('#showForm').is(':hidden') ? $('#showForm').show() : $('#showForm').hide();
-    })
+    });
 
-    $(document).ready(function () {
+    $("#add-form").submit(function (e) {
+        //preventDedault evita que se recargue la pagina 
+        console.log("click");
+        e.preventDefault();
         //definimos el arreglo de datos que deseamos enviar atraves de ajax
-        
+        const data = {
+            name: $("#product-name").val(),
+            price: $("#product-price").val(),
+            disscount_price: $("#product-disscount-price").val(),
+            image: $("#product-image").val(),
+            description: $("#product-description").val(),
+            opcion: "agregar"
+        };
         //metodo abreviado de jquery para enviar solicitudes ajax
-        $.get('.././core/ajax/maquinariaAjax.php', 
+        $.post('.././core/ajax/maquinariaAjax.php', data,
             function (response) {
                 console.log(response);
             });
