@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./core/config/url.php");
 require_once("./public/values/values.php");
 require_once(CONTROLLER . "viewController.php");
