@@ -74,8 +74,6 @@
                                             <!-- Opciones de categorias aqui -->
                                         </select> </div>
                                     <div class="form-group"> <select class='form-control' id="product-brand">
-                                            <option value="">Seleccione una marca</option>
-                                            <!-- Opciones de marcas aqui -->
                                         </select>
                                     </div> <button class='btn btn-primary' type="submit">Agregar Producto</button>
                                 </form>
@@ -95,8 +93,12 @@
 
 </html>
 <script>
-    console.log("xd");
+
     $('#showForm').hide();
+
+    cargarSelectMarcas($("#product-brand"));
+
+    cargarSelectCategorias($("#product-category"));
 
     $('#agregarEs').click(function () {
         $('#showForm').is(':hidden') ? $('#showForm').show() : $('#showForm').hide();
@@ -122,7 +124,77 @@
             });
     })
 
-    function cargarSelectCategorias() {
+    function cargarSelectMarcas(select) {
 
+        $.ajax
+    ({
+        url: 'http://localhost/agromachinery_wweb/core/ajax/marcaAjax.php',
+        type: 'get',
+        success: function(response)
+        {
+            // Parseamos la respuesta a JSON
+            var marcas = JSON.parse(response);
+           
+            // Limpiamos el select
+            $(select).empty();
+
+                        // Añadimos una opción nula
+                        var optionNula = $('<option/>')
+                .attr('value', '')
+                .text('--Seleccione una marca--');
+
+            // La añadimos al select
+            $(select).append(optionNula);
+
+            // Recorremos el array de marca
+            marcas.forEach(function(marca)
+            {
+                // Creamos una opción para cada marca
+                var option = $('<option/>')
+                    .attr('value', marca.codigo)
+                    .text(marca.nombre);
+
+                // La añadimos al select
+                $(select).append(option);
+            });
+        }
+    });
     }
+
+    function cargarSelectCategorias(select) {
+
+$.ajax
+({
+url: 'http://localhost/agromachinery_wweb/core/ajax/categoriasAjax.php',
+type: 'get',
+success: function(response)
+{ console.log(response);
+    // Parseamos la respuesta a JSON
+    var categorias = JSON.parse(response);
+
+    // Limpiamos el select
+    $(select).empty();
+
+                // Añadimos una opción nula
+                var optionNula = $('<option/>')
+        .attr('value', '')
+        .text('--Seleccione una categoria--');
+
+    // La añadimos al select
+    $(select).append(optionNula);
+
+    // Recorremos el array de categoria
+    categorias.forEach(function(categoria)
+    {
+        // Creamos una opción para cada categoria
+        var option = $('<option/>')
+            .attr('value', categoria.codigo)
+            .text(categoria.nombre);
+
+        // La añadimos al select
+        $(select).append(option);
+    });
+}
+});
+}
 </script>
