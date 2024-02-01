@@ -8,23 +8,9 @@
     <meta property="type" content="website" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-        if (navigator.userAgent.match(/Mobi/)) {
-            // This is a mobile device
-            // You can add specific styles for mobile devices here
-            var link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = "<?php echo CSS; ?>mobile/template.css";
-            document.head.appendChild(link);
-        } else {
-            // You can add specific styles for non-mobile devices here
-            var link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = "<?php echo CSS; ?>nonMobile/template.css";
-            document.head.appendChild(link);
-        }
-    </script>
-    <!--personalizeted css-->
+    <!--personalizeted css--> 
+    <link rel="stylesheet" href="<?php echo CSS; ?>template.css">
+
 
     <!--sweet alert scripts-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
