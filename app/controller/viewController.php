@@ -5,6 +5,10 @@ class ViewController extends ViewModel {
     public function cargarPlantilla() {
         return require_once TEMPLATE.'vistaPlantilla.php';
     }
+    public function cargarPlantillaAdmin()
+    {
+        return require_once  ADMIN."adminDashBoard.php";
+    }
 
     public function obtenerVistaController() {
         if(isset($_GET['controller'])) {

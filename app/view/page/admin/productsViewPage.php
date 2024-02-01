@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>productos||admin</title>
-    <!-- CSS only -->
-    <?php
-    require_once './app/view/page/admin/linksForAdminViews.php';
-    ?>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-md">
-            <a class="navbar-brand" href="#">Administrar Productos</a>
-        </div>
-
-        <?php
-        if (isset($_POST['logout'])) {
-            session_destroy();
-            header("Location: http://localhost/agromachinery_wweb/");
-            exit;
-        }
-        ?>
-        <form method="post">
-            <button type="submit" class="btn btn-primary" name="logout">Logout</button>
-        </form>
-
-    </nav>
     <main>
         <div class="container p-4">
             <div class="row  justify-content-center">
@@ -82,16 +52,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row"></div>
-            <div class="row justify-content-center">
-                <a href='https://github.com/CheeseCreamMe/agromachinery_wweb'>More info about this site </a>
-            </div>
-        </div>
-    </main>
-
-</body>
-
-</html>
 <script>
 
     $('#showForm').hide();
