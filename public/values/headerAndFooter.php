@@ -6,3 +6,17 @@ const HeadSETT = '  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="2
 const SUPPORT_NUMBER = "(503) 2408-0740";
 const DIRECCION = "Santa Ana, Santa AnaEl Salvador";
 const E_MAIL = "info@agromachinery.com";
+
+$linksfooter = array(
+    array('title' => 'Acerca de Nosotros', 'url' => '#'),
+    array('title' => 'Información Delivery', 'url' => '#'),
+    array('title' => 'Contactános', 'url' => '#')
+);
+
+$header = array(
+    array('title' => 'Inicio', 'url' => 'home'),
+    array('title' => 'Agricola', 'url' => 'agricola'),
+    array('title' => 'Veterinaria', 'url' => 'veterinaria'),
+    array('title' => 'Maquinaria', 'url' => 'maquinaria'),
+    array('title' => 'Quienes Somos', 'url' => 'about')
+);

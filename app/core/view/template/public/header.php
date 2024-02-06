@@ -38,7 +38,7 @@
                 </div>
                 <div class="container-logo">
                     <h1>
-                        <span class='links logo' href="home">
+                        <span class='logo' href="home">
                             MACHINERY
                         </span>
                     </h1>
@@ -53,12 +53,13 @@
         </div>
         <div class="container-navbar">
             <nav class="container navbar">
-                <ul class="menu">
-                    <a class="links" href="home">Inicio</a>
-                    <a class="links" href="maquinaria">Maquinaria</a>
-                    <a class="links" href="agricola">Agricola</a>
-                    <a class="links" href="about">Quines Somos</a>
-                </ul>
+                <?php
+                echo "<ul class='menu'>\n";
+                foreach ($header as $link) {
+                    echo "<a class='links' href='" . $link['url'] . "'>" . $link['title'] . "</a>\n";
+                }
+                echo "</ul>\n";
+                ?>
             </nav>
         </div>
     </header>

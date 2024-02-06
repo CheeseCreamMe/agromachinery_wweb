@@ -6,21 +6,23 @@
                 <p class="title-footer">Información de Contacto</p>
                 <ul>
                     <li>
-                        Dirección: 71
+                    <?php echo DIRECCION; ?>
                     </li>
-                    <li>Teléfono: 123-456-7890</li>
-                    <li>EmaiL: baristas@support.com</li>
+                    <li><?php echo HeadSETT." ".SUPPORT_NUMBER; ?></li>
+                    <li><?php echo E_MAIL; ?></li>
                 </ul>
 
             </div>
 
             <div class="information">
                 <p class="title-footer">Información</p>
-                <ul>
-                    <li><a href="#">Acerca de Nosotros</a></li>
-                    <li><a href="#">Información Delivery</a></li>
-                    <li><a href="#">Contactános</a></li>
-                </ul>
+                    <?php 
+                    echo "<ul>\n";
+                    foreach ($linksfooter as $link) {
+                        echo "<li><a href='" . $link['url'] . "'>" . $link['title'] . "</a></li>\n";
+                    }
+                    echo "</ul>\n";
+                    ?>
             </div>
         </div>
         <div class="social-icons">
