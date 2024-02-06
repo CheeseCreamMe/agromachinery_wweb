@@ -7,13 +7,12 @@ function consultarMarcasServidor(callback)
 {
     $.ajax
     ({
-        url: 'http://localhost/agromachiney_wweb/api/marcas/ajaxMarcas.php',
+        url: 'http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php',
         type: 'get',
         success: function(response)
         {
             // Parseamos la respuesta a JSON
             var categorias = JSON.parse(response);
-
             // Llamamos a la función de callback con las categorías como argumento
             callback(categorias);
         }
