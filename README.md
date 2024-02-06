@@ -18,77 +18,86 @@
 
 
 ```
+```
 └── 📁agromachinery_wweb
     └── .htaccess
+    └── 📁api
+        └── 📁categorias
+            └── ajaxCategorias.php
+            └── delete.js
+            └── edit.js
+            └── read.js
+        └── 📁marcas
+            └── ajaxMarcas.php
+            └── delete.js
+            └── edit.js
+            └── read.js
+        └── 📁productos
+            └── ajaxProductos.php
+            └── delete.js
+            └── edit.js
+            └── read.js
     └── 📁app
-        └── 📁controller
-            └── categoriaController.php
-            └── maquinariaController.php
-            └── marcaController.php
-            └── viewController.php
-        └── 📁model
-            └── etiquetasModelo.php
-            └── maquinariaModelo.php
-            └── marcaModelo.php
-            └── viewModel.php
-        └── 📁view
-            └── 📁page
-                └── 📁admin
-                    └── productsViewPage.php
-                └── 📁pages
-                    └── aboutViewPage.php
-                    └── agricolaViewPage.php
-                    └── homeViewPage.php
-                    └── maquinariaViewPage.php
-                    └── notFoundViewPage.php
-                    └── productsViewPage.php
-            └── 📁templates
-                └── footerPlantilla.php
-                └── headerPlantilla.php
-                └── vistaPlantilla.php
-    └── 📁core
-        └── 📁ajax
-            └── agricolaAjax.js
-            └── agricolaAjax.php
-            └── categoriasAjax.js
-            └── categoriasAjax.php
-            └── maquinariaAjax.js
-            └── maquinariaAjax.php
-            └── marcaAjax.js
-            └── marcaAjax.php
-            └── veterinariaAjax.js
-            └── veterinariaAjax.php
-        └── 📁config
-            └── url.php
         └── 📁connection
             └── bdValues.php
-            └── connecction.php
-            └── recovery.sql
-    └── index.php
-    └── 📁public
-        └── 📁css
-            └── 📁mobile
-                └── footer.css
-                └── headerMobile.css
-                └── template.css
-            └── 📁nonMobile
+            └── connection.php
+        └── 📁core
+            └── 📁controller
+                └── categoriasController.php
+                └── marcasController.php
+                └── productosController.php
+                └── viewController.php
+            └── 📁model
+                └── categoriasModel.php
+                └── marcasModel.php
+                └── productosModel.php
+                └── viewModel.php
+            └── 📁view
+                └── 📁pages
+                    └── 📁admin
+                        └── 📁categorias
+                        └── categoriasAdminPage.php
+                        └── 📁marca
+                        └── marcasAdminPage.php
+                        └── 📁productos
+                        └── productosAdminPage.php
+                    └── 📁public
+                        └── aboutViewPage.php
+                        └── homeViewPage.php
+                        └── notFoundViewPage.php
+                        └── productsViewPage.php
+                └── 📁template
+                    └── 📁admin
+                        └── adminDashBoard.php
+                        └── footer.php
+                        └── header.php
+                        └── login.php
+                    └── 📁public
+                        └── footer.php
+                        └── header.php
+                        └── publicTemplate.php
+        └── 📁resources
+            └── 📁css
                 └── aside.css
                 └── footer.css
                 └── header.css
                 └── home.css
                 └── template.css
                 └── vars.css
+            └── 📁images
+                └── 📁marca
+                 └──imagenes necesarias para marcas
+                └── 📁productos
+                    └──imagenes necesarias para productos
+    └── index.php
+    └── 📁public
+        └── 📁icons
+            └── logo-agromachienry.webp
         └── 📁images
-            └── //iamgenes de la plantilla html
-            └── 📁icons
-                └── logo-agromachienry.webp
-            └── logo.jpg
-            └── 📁marca
-                └── //imagenes de las marcas
-            └── new_banner.jpg
-            └── 📁productos
-                └──//imagenes de productos
+            └──imagenes por defecto
         └── 📁values
-            └── values.php
+            └── aboutUS.php
+            └── headerAndFooter.php
     └── README.md
+```
 ```

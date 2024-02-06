@@ -1,9 +1,20 @@
 <?php
 session_start();
-require_once("./core/config/url.php");
-require_once("./public/values/values.php");
-require_once(CONTROLLER . "viewController.php");
-$template = new ViewController();
+//algunas de las url mas usadas en el proyecto
+const USER_VIEW_TEMPLATE = "./app/core/view/template/public/";
+const USER_VIEW = "./app/core/view/pages/public/";
+
+const ADMIN_VIEW_TEMPLATE = "./app/core/view/template/admin/";
+const ADMIN_VIEW = "./app/core/view/pages/admin/";
+
+const CONTROLLER = "./app/core/controller/";
+const MODEL = "./app/core/model/";
+
+const CSS = "./app/resources/css/";
+
+require_once CONTROLLER . "viewController.php";
+
+$template = new viewController();
 
 if (isset($_GET['controller'])) {
     $rute = explode('/', $_GET['controller']);
@@ -13,8 +24,6 @@ if (isset($_GET['controller'])) {
     } else if (count($rute) == 2 && $rute[0] == "admin") {
         $template->cargarPlantillaAdmin();
     }
-}
-
-else{
+} else {
     $template->cargarPlantilla();
 }
