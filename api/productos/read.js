@@ -7,13 +7,24 @@ switch (categoria) {
   case 'Maquinaria':
     consultarMaquinariaServidor();
     break;
-  case 'agriola':
-    funcionDrama();
+  case 'Veterinaria':
+    consultarVeterinariaServidor();
     break;
   default:
     console.log('Categoría desconocida');
 }
 
+
+function consultarVeterinariaServidor() {
+    $.ajax({
+        url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+        type: "POST",
+        data: { opcion: "verVeterinaria" },
+        success: function (response) {
+            displayProducts(JSON.parse(response));
+        },
+    });
+}
 
 function consultarMaquinariaServidor() {
     $.ajax({
@@ -21,8 +32,6 @@ function consultarMaquinariaServidor() {
         type: "POST",
         data: { opcion: "verMaquinaria" },
         success: function (response) {
-            console.log("aqui...")
-            console.log(response);
             displayProducts(JSON.parse(response));
         },
     });
@@ -34,7 +43,6 @@ function consultarAgricolaServidor() {
         type: "POST",
         data: { opcion: "verAgricola" },
         success: function (response) {
-            console.log(response);
             displayProducts(JSON.parse(response));
         },
     });
