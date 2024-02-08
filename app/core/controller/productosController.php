@@ -15,6 +15,8 @@ class productoController extends productosModelo
                 break;
             case 'Agricola':
                 $datos = $this->obtenerJsonAgricola();
+            case 'Veterinaria':
+                $datos = $this->obtenerJsonVeterinaria();
                 break;
         }
         return $datos;
@@ -53,12 +55,29 @@ class productoController extends productosModelo
         }
         return $tabla;
     }
+    private function obtenerJsonVeterinaria()
+    {
+        try {
+            $datos = self::obtenerVeterinariaTabla();
+            $tabla = self::crearJSonTemplateProductos($datos);
+        } catch (\Throwable $th) {
+            $tabla = array();
+            $tabla[] = array(
+                'codigo' => "0",
+                'nombre' => "no hay productos",
+                'precio' => "0000",
+                'descuento' => "0000",
+                'imagen' => "./public/images/banner_home.jpg",
+            );
+        }
+        return $tabla;
+    }
     public function eliminarProductoServidor($id)
     {
         try {
             $respuesta = self::eliminarProductoId($id);
         } catch (\Throwable $th) {
-           $respuesta = false;
+            $respuesta = false;
         }
         return $respuesta;
     }
