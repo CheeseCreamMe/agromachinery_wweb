@@ -53,4 +53,13 @@ class productoController extends productosModelo
         }
         return $tabla;
     }
+    public function eliminarProductoServidor($id)
+    {
+        try {
+            $respuesta = self::eliminarProductoId($id);
+        } catch (\Throwable $th) {
+           $respuesta = false;
+        }
+        return $respuesta;
+    }
 }
