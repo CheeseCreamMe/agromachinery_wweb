@@ -36,13 +36,13 @@ class viewModel
 
         if (isset($_SESSION['admin'])) {
             if (in_array($vista, $white_list)) {
-                if (is_file(ADMIN_VIEW . $vista . "ViewPage.php")) {
-                    $pagina_deseada = ADMIN_VIEW . $vista . "ViewPage.php";
+                if (is_file(ADMIN_VIEW . $vista . "AdminPage.php")) {
+                    $pagina_deseada = ADMIN_VIEW . $vista . "AdminPage.php";
                 } else {
-                    $pagina_deseada = ADMIN_VIEW . "homeViewPage.php";
+                    $pagina_deseada = ADMIN_VIEW . "homeAdminPage.php";
                 }
             } else {
-                $pagina_deseada = ADMIN_VIEW . "notFoundViewPage.php";
+                $pagina_deseada = ADMIN_VIEW . "notFoundAdminPage.php";
             }
         }
         // Si no hay sesión de administrador redirige a login
