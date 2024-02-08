@@ -27,7 +27,7 @@ function generarSelectMarcas(select, categorias)
     // Añadimos una opción nula
     var optionNula = $('<option/>')
         .attr('value', '')
-        .text('sin filtros');
+        .text('ninguna marca seleccionada');
 
     // La añadimos al select
     $(select).append(optionNula);
