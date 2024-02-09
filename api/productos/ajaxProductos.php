@@ -19,6 +19,10 @@ if (isset($_POST['opcion'])) {
             $categoria = 'Veterinaria';
             $json = json_encode( $instancia -> obtenerJsonProductos($categoria));
             break;
+            case 'verTodo':
+                $categoria = 'Todos';
+                $json = json_encode($instancia->obtenerJsonProductos($categoria));
+            break;
         case 'eliminar':
             $id = $_POST['id'];
             $json= json_encode($instancia->eliminarProductoServidor($id));

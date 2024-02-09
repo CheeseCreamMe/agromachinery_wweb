@@ -1,19 +1,56 @@
-
-switch (categoria) {
-  case 'Agricola':
-    console.log("cargando datos agricola");
-    consultarAgricolaServidor();
-    break;
-  case 'Maquinaria':
-    consultarMaquinariaServidor();
-    break;
-  case 'Veterinaria':
-    consultarVeterinariaServidor();
-    break;
-  default:
-    console.log('Categoría desconocida');
+try {
+    switch (categoria) {
+        case 'Agricola':
+            consultarAgricolaServidor();
+            break;
+        case 'Maquinaria':
+            consultarMaquinariaServidor();
+            break;
+        case 'Veterinaria':
+            consultarVeterinariaServidor();
+            break;
+        default:
+            console.log('Categoría desconocida');
+            break;
+    }
+} catch (error) {
+    actualizarTabla();
 }
 
+
+function actualizarTabla() {
+    var table = $("#productos").DataTable({
+        data: $.ajax(
+            {
+                url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+                type: "POST",
+                data: { opcion: "verTodo" },
+            }),
+        columns: [
+            { data: 'codigo' },
+            { data: 'nombre' },
+            { data: 'precio' },
+            { data: 'descuento' },
+            { data: 'imagen' },
+            { data: 'inventario' },
+            { data: 'marca' },
+            { data: 'categoria' },
+            { data: 'descripcion' },
+        ]
+    });
+
+    $.ajax({
+        url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+        type: "POST",
+        data: { opcion: "verTodo" },
+        success: function (response) {
+            response = JSON.parse(response);
+            console.log(response);
+            table.clear().draw(); // Clear the existing data from the table
+            table.rows.add(response).draw(); // Add the new data to the table
+        }
+    });
+}
 
 function consultarVeterinariaServidor() {
     $.ajax({
