@@ -11,20 +11,23 @@ class productoController extends productosModelo
     {
         switch ($categoria) {
             case 'Maquinaria':
-                $datos = $this->obtenerJsonMaquinaria();
+                $datos = $this->obtenerJsonProductosPorCategoria($categoria);
                 break;
             case 'Agricola':
-                $datos = $this->obtenerJsonAgricola();
+                $datos = $this->obtenerJsonProductosPorCategoria($categoria);
             case 'Veterinaria':
-                $datos = $this->obtenerJsonVeterinaria();
+                $datos = $this->obtenerJsonProductosPorCategoria($categoria);
+                break;
+            case 'Todos':
+                $datos = $this->obtenerJsonProductosDefault();
                 break;
         }
         return $datos;
     }
-    private function obtenerJsonAgricola()
+    private function obtenerJsonProductosPorCategoria($categoria)
     {
         try {
-            $datos = self::obtenerAgricolaTabla();
+            $datos = self::obtenerPorCategoria($categoria);
             $tabla = self::crearJSonTemplateProductos($datos);
         } catch (\Throwable $th) {
             $tabla = array();
@@ -38,10 +41,10 @@ class productoController extends productosModelo
         }
         return $tabla;
     }
-    private function obtenerJsonMaquinaria()
+    private function obtenerJsonProductosDefault()
     {
         try {
-            $datos = self::obtenerMaquinariaTabla();
+            $datos = self::obtenerTablaDeTodosLosProductos();
             $tabla = self::crearJSonTemplateProductos($datos);
         } catch (\Throwable $th) {
             $tabla = array();
@@ -55,23 +58,7 @@ class productoController extends productosModelo
         }
         return $tabla;
     }
-    private function obtenerJsonVeterinaria()
-    {
-        try {
-            $datos = self::obtenerVeterinariaTabla();
-            $tabla = self::crearJSonTemplateProductos($datos);
-        } catch (\Throwable $th) {
-            $tabla = array();
-            $tabla[] = array(
-                'codigo' => "0",
-                'nombre' => "no hay productos",
-                'precio' => "0000",
-                'descuento' => "0000",
-                'imagen' => "./public/images/banner_home.jpg",
-            );
-        }
-        return $tabla;
-    }
+
     public function eliminarProductoServidor($id)
     {
         try {
