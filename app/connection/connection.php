@@ -17,24 +17,21 @@ class connection
 
     protected function limpiarCadena($cadena)
     {
-        $valores_elimiar = array(
-            "<scipt>",
-            "</script>",
-            "select * from",
-            "SELECT * FROM",
-            "INSERT INTO",
-            "insert into",
-            "DELETE FROM",
-            "delete from",
-            '"',
-            "'",
-            "<script type",
-            "<script src"
+        $valores_eliminar = array(
+            "/<script>/i",
+            "/<\/script>/i",
+            "/select \* from/i",
+            "/insert into/i",
+            "/delete from/i",
+            '/["\']/',
+            "/<script type/i",
+            "/<script src/i"
         );
         $cadena = trim($cadena);
-        $cadena = preg_replace($valores_elimiar, "", $cadena);
+        $cadena = preg_replace($valores_eliminar, "", $cadena);
         return $cadena;
     }
+    
 
     protected function ejecutarConsultaSimple($sql)
     {
