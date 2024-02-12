@@ -21,6 +21,7 @@ class productosModelo extends connection
     }
     protected function agregarProducto($producto)
     {
+        return "datos agregados = ".$producto['nombre'].$producto['descuento'];
     }
 
     protected function obtenerTablaDeTodosLosProductos()

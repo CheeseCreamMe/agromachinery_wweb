@@ -27,6 +27,9 @@ if (isset($_POST['opcion'])) {
             $id = $_POST['id'];
             $json= json_encode($instancia->eliminarProductoServidor($id));
             break;
+        case 'agregar':
+            $json = $instancia->agregarProductoController();
+            break;
         default:
             # code...
             break;

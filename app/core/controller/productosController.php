@@ -7,6 +7,21 @@ if ($peticionAjax) {
 
 class productoController extends productosModelo
 {
+    public function agregarProductoController()
+    {
+        $nombre = self::limpiarCadena($_POST['nombre']);
+        $precio = $_POST['precio'];
+        $descuento = $_POST['precio_descuento'];
+    
+        $data = [
+            "nombre" => $nombre,
+            "precio" => $precio,
+            "descuento" => $descuento
+        ];
+        
+        $bd_response = self::agregarProducto($data);
+        return $bd_response;
+    }
     public function obtenerJsonProductos($categoria)
     {
         switch ($categoria) {
