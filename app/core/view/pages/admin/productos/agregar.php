@@ -43,7 +43,11 @@
             <div class="input-group">
                 <span class="input-group-text">Tienda:</span>
                 <select class="form-control" id="product-category">
-                    <!-- Opciones de categorías aquí -->
+                    <!-- Opciones de categorías aquí -->  
+                    <option value="0">-Ninguna Tienda seleccionada-</option>
+                    <option value="1">Maquinaria</option>
+                    <option value="2">Agricola</option>
+                    <option value="3">Veterinaria</option>
                 </select>
             </div>
             <div class="input-group">
