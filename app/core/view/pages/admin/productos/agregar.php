@@ -38,7 +38,7 @@
             </div>
             <div class="input-group">
                 <span class="input-group-text">Inventario:</span>
-                <input type="number" min="1" placeholder="Ingrese el inventario del producto" class="form-control">
+                <input id="product-inventory" type="number" min="1" placeholder="Ingrese el inventario del producto" class="form-control">
             </div>
             <div class="input-group">
                 <span class="input-group-text">Tienda:</span>
