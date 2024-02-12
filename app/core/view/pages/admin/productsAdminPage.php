@@ -20,6 +20,7 @@
 
 <script src=".././api/marcas/read.js"></script>
 <script src=".././api/productos/read.js"></script>
+<script src=".././api/productos/create.js"></script>
 <script>
 
     $(document).ready(function () {
