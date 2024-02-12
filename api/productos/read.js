@@ -20,7 +20,7 @@ try {
 
 function actualizarTabla() {
     var table = $("#productos").DataTable({
-        data: $.ajax(
+         data : $.ajax(
             {
                 url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
                 type: "POST",
@@ -30,12 +30,42 @@ function actualizarTabla() {
             { data: 'codigo' },
             { data: 'nombre' },
             { data: 'precio' },
-            { data: 'descuento' },
-            { data: 'imagen' },
-            { data: 'inventario' },
+            {  data:'descuento' },
+            {
+                data: 'imagen',
+                orderable: false,
+                searchable: false,
+                render: function ( data, type, row ) {
+                    if (type === 'display') {
+                        data = '<img src="../' + data + '" width="50" height="50" alt="imagen del producto"/>';
+                    }
+        
+                    return data;
+                }
+            },
+            {  data:'inventario' },
             { data: 'marca' },
             { data: 'categoria' },
-            { data: 'descripcion' },
+            {  data: 'descripcion' },
+            {
+                defaultContent: ``,
+                orderable: false,
+                searchable: false,
+                createdCell: function (td, cellData, rowData, row, col) {
+                    var button = $('<button class="btn btn-primary edit-button"></button>');
+                    button.attr('data-product-code', rowData.codigo);
+                    button.text('Editar');
+                    $(td).html(button);
+                }
+            },
+            {
+                defaultContent: `<button class="btn btn-danger delete-button">Eliminar</button>`,
+                orderable: false,
+                searchable: false,
+                createdCell: function (td, cellData, rowData, row, col) {
+                    $(td).find('.delete-button').attr('data-product-code', rowData.codigo);
+                }
+            }
         ]
     });
 
@@ -46,12 +76,12 @@ function actualizarTabla() {
         success: function (response) {
             response = JSON.parse(response);
             console.log(response);
+
             table.clear().draw(); // Clear the existing data from the table
             table.rows.add(response).draw(); // Add the new data to the table
         }
     });
 }
-
 function consultarVeterinariaServidor() {
     $.ajax({
         url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
