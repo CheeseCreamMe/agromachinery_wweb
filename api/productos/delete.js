@@ -1,37 +1,30 @@
-function isValidId(id) {
-    return id != null && id != 0;
-}
+function eliminarProducto(button) {
+    var productCode = $(button).data('product-code');
 
-$(document).ready(function() {
-    $('#btnErase').click(function() {
-        var id = $(this).val();
-        if (!isValidId(id)) {
-            Swal.fire({
-                title: 'Error',
-                text: 'No se ha encontrado el producto, puede se que no exista o ya se haya eliminado',
-                icon: 'error'
-            });
-            return;
-        }
-        $.post('http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php', {
-                opcion: 'eliminar',
-                id: id
-            },
-            function(response) {
-                if (response == 'true') {
-                    Swal.fire({
-                        title: 'Eliminado',
-                        text: 'El producto ha sido eliminado correctamente',
-                        icon: 'success'
-                    });
-                } else {
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'No se ha podido eliminar el producto',
-                        icon: 'error'
-                    });
+    Swal.fire({
+        title: "Desea Eliminar el producto con código: " + productCode,
+        showDenyButton: true,
+        showCancelButton: true,
+        showCancelButton: false,
+        icon: "info",
+        confirmButtonText: "Conservar",
+        denyButtonText: `Eliminar`
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //no desea eliminar
+            Swal.fire("No se ha Eliminado!", "Cancelo la acción, el producto no se ha eliminado", "warning");
+        } else if (result.isDenied) {
+        //desea eliminar el producto
+            $.ajax({
+                url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+                type: "POST",
+                data: { opcion: "eliminar", id: productCode },
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    Swal.fire(data);
+                    actualizarTabla();
                 }
-            }
-        );
+            });
+        }
     });
-});
+}
