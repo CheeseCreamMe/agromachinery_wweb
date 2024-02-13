@@ -31,6 +31,7 @@ btnCrear.on('click', function (event) {
                         text: response,
                         icon: "success"
                     })
+                    actualizarTabla();
                 },
             })
         });
