@@ -153,6 +153,9 @@ function displayProducts(products) {
             <span><i class="fa-solid fa-code-compare"></i></span>
           </div>
         </div>
+        <div>
+        <h2 class="price-discount">${product.precio}</h2>
+        </div>
         <div class="content-card-product">
           <h3>${product.nombre}</h3>
           <span class="add-cart"><i class="fa-solid fa-basket-shopping"></i></span>

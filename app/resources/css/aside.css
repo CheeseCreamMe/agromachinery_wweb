@@ -202,10 +202,11 @@
   font-weight: 600;
 }
 
-.content-card-product .price span {
+.price-discount {
   font-size: 1.5rem;
   font-weight: 400;
   text-decoration: line-through;
-  
+  color:#3f3f3f;
   margin-left: 0.5rem;
+  text-align: right ;
 }

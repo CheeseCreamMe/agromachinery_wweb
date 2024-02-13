@@ -28,7 +28,7 @@
 
 <div class="container-error">
     <div class="container-error-text">
-        <button class="btn btn-success"><a href="products" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Volver al inicio</a></button>
+        <button class="btn btn-success" onclick="window.location.href='products'" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Volver al inicio</button>
         <h1 class="error-message">Error 404</h1>
         <p class="error-text">Página no encontrada</p>
     </div>
