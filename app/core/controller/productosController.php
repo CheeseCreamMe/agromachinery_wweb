@@ -12,11 +12,21 @@ class productoController extends productosModelo
         $nombre = self::limpiarCadena($_POST['nombre']);
         $precio = $_POST['precio'];
         $descuento = $_POST['precio_descuento'];
+        $descripcion = self::limpiarCadena($_POST['descripcion']);
+        $inventario = $_POST['inventario'];
+        $categoria = $_POST['categoria'];
+        $marca = $_POST['marca'];
+        $rutaImagen = $_POST['imagen'];
     
         $data = [
             "nombre" => $nombre,
             "precio" => $precio,
-            "descuento" => $descuento
+            "descuento" => $descuento,
+            "descripcion" => $descripcion,
+            "inventario" => $inventario,
+            "categoria" => $categoria,
+            "marca" => $marca,
+            "rutaImagen" => $rutaImagen
         ];
         
         $bd_response = self::agregarProducto($data);

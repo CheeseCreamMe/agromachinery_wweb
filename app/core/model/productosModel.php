@@ -21,8 +21,30 @@ class productosModelo extends connection
     }
     protected function agregarProducto($producto)
     {
-        return "datos agregados = ".$producto['nombre'].$producto['descuento'];
+        $sql = "INSERT INTO producto (nombre, precio, descripcion, precio_descuento, imagen, inventario, categoria_id, marca_id)
+                VALUES (:nombre, :precio, :descripcion, :precio_descuento, :imagen, :inventario, :categoria_id, :marca_id)";
+        
+        try {
+            $resultado = self::connect()->prepare($sql);
+            $resultado->bindParam(':nombre', $producto['nombre']);
+            $resultado->bindParam(':precio', $producto['precio']); 
+            $resultado->bindParam(':descripcion', $producto['descripcion']);
+            $resultado->bindParam(':precio_descuento', $producto['descuento']);
+            $resultado->bindParam(':imagen', $producto['rutaImagen']);
+            $resultado->bindParam(':inventario', $producto['inventario']);
+            $resultado->bindParam(':categoria_id', $producto['categoria']);
+            $resultado->bindParam(':marca_id', $producto['marca']);
+            $resultado->execute();
+    
+            // Verificar si la consulta afectó alguna fila
+            $filas_afectadas = $resultado->rowCount();
+            
+            return ($filas_afectadas > 0) ? "Producto '{$producto['nombre']}' agregado" : "Error al agregar el producto";
+        } catch(PDOException $e) {
+            return "Error: " . $e->getMessage();
+        }
     }
+    
 
     protected function obtenerTablaDeTodosLosProductos()
     {
