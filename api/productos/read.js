@@ -14,11 +14,11 @@ try {
             break;
     }
 } catch (error) {
-    actualizarTabla();
+    cargarTabla();
 }
 
 
-function actualizarTabla() {
+function cargarTabla() {
     var table = $("#productos").DataTable({
          data : $.ajax(
             {
@@ -69,6 +69,10 @@ function actualizarTabla() {
         ]
     });
 
+   actualizarTabla();
+}
+
+function actualizarTabla() {
     $.ajax({
         url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
         type: "POST",
@@ -77,11 +81,19 @@ function actualizarTabla() {
             response = JSON.parse(response);
             console.log(response);
 
-            table.clear().draw(); // Clear the existing data from the table
-            table.rows.add(response).draw(); // Add the new data to the table
+            // Get the DataTable instance
+            var table = $("#productos").DataTable();
+
+            // Clear the existing data from the table
+            table.clear().draw();
+
+            // Add the new data to the table
+            table.rows.add(response).draw();
         }
     });
 }
+
+
 function consultarVeterinariaServidor() {
     $.ajax({
         url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
@@ -131,40 +143,23 @@ function displayProducts(products) {
             precio = product.descuento;
         }
         productContainer.insertAdjacentHTML("beforeend", `
-            <div class="card-product">
-                <div class="container-img">
-                    <img
-                        src="${product.imagen}"
-                        alt="Cafe incafe-ingles.jpg"
-                    />
-                    <span class="discount">${descuento}</span>
-                    <div class="button-group">
-                        <span>
-                            <i class="fa-regular fa-eye"></i>
-                        </span>
-                        <span>
-                            <i class="fa-regular fa-heart"></i>
-                        </span>
-                        <span>
-                            <i class="fa-solid fa-code-compare"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="content-card-product">
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <h3>${product.nombre}</h3>
-                    <span class="add-cart">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                    </span>
-                    <p class="price">${precio}</p>
-                </div>
-            </div>
+        <div class="card-product">
+        <div class="container-img">
+          <img src="${product.imagen}" alt="Cafe incafe-ingles.jpg" />
+          <span class="discount">${descuento}</span>
+          <div class="button-group">
+            <span><i class="fa-regular fa-eye"></i></span>
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-solid fa-code-compare"></i></span>
+          </div>
+        </div>
+        <div class="content-card-product">
+          <h3>${product.nombre}</h3>
+          <span class="add-cart"><i class="fa-solid fa-basket-shopping"></i></span>
+          <p class="price">${precio}</p>
+        </div>
+      </div>
+      
         `);
     });
 }
