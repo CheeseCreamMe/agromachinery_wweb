@@ -59,13 +59,14 @@ function cargarTabla() {
                 }
             },
             {
-                defaultContent: `<button class="btn btn-danger delete-button">Eliminar</button>`,
+                defaultContent: `<button class="btn btn-danger delete-button" onclick="eliminarProducto(this)">Eliminar</button>`,
                 orderable: false,
                 searchable: false,
                 createdCell: function (td, cellData, rowData, row, col) {
                     $(td).find('.delete-button').attr('data-product-code', rowData.codigo);
                 }
             }
+            
         ]
     });
 
@@ -79,7 +80,6 @@ function actualizarTabla() {
         data: { opcion: "verTodo" },
         success: function (response) {
             response = JSON.parse(response);
-            console.log(response);
 
             // Get the DataTable instance
             var table = $("#productos").DataTable();
