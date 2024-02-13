@@ -89,7 +89,11 @@ class productoController extends productosModelo
         try {
             $respuesta = self::eliminarProductoId($id);
         } catch (\Throwable $th) {
-            $respuesta = false;
+            $respuesta = array(
+                "title" => "¡Ups!",
+                "text" => "Parece que no se ha podido eliminar el producto.",
+                "icon" => "error"
+            );
         }
         return $respuesta;
     }

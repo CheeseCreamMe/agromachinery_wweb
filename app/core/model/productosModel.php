@@ -82,13 +82,24 @@ class productosModelo extends connection
     protected function eliminarProductoId($id)
     {
         $productoId = self::limpiarCadena($id);
-        $consulta = "DELETE p
-        FROM producto p
-        WHERE p.id = " . $productoId . ";";
+        $consulta = "DELETE FROM producto WHERE id = " . $productoId;
         $respuesta = self::ejecutarConsultaSimple($consulta);
-        return $respuesta;
+        
+        if ($respuesta > 0) {
+            return  array(
+                "title" => "Eliminado",
+                "text" => "Se eliminó correctamente el producto con ID: " . $productoId,
+                "icon" => "success"
+            );
+        } else {
+            return array(
+                "title" => "Error",
+                "text" => "No se pudo eliminar el producto con ID: " . $productoId,
+                "icon" => "error"
+            );
+        }
     }
-
+    
     protected function editarProducto($id, $precio, $precio_descuento, $descripcion, $imagen_ruta, $nombre, $inventario)
     {
         $productoId = self::limpiarCadena($id);
