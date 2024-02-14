@@ -5,7 +5,8 @@ $instancia = new MarcaController();
 if (isset($_POST['opcion'])) {
     echo "cadena";
 } else {
-    $tabla = $instancia->consultarMarcasController();
+    $categoria = $_POST['categoriaSeleccionada'];
+    $tabla = $instancia->consultarMarcasControlller($categoria);
     $total = json_encode($tabla);
     echo $total;
 }

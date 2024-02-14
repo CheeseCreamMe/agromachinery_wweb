@@ -6,18 +6,23 @@ if ($peticionAjax) {
 }
 class MarcaController extends MarcasModel
 {
-    public function consultarMarcasController()
+    public function consultarMarcasControlller($categoria)
     {
-        try {
-            $jsonCtaegorias = self::obtenerJsonMarcas(); //code...
-        } catch (\Throwable $th) {
-            $jsonCtaegorias[] = array(
-                'codigo' => '0',
-                'nombre' => $th,
-            ); //throw $th;
+        switch ($categoria) {
+            case 'Maquinaria':
+                $lista = self::obtenerJsonMarcasMaquinaria();
+                break;
+            case 'Agricola':
+                $lista = self::obtenerJsonMarcaAgricola();
+                break;
+            case 'Veterinaria':
+                $lista = self::obtenerJsonMarcasVeterinaria();
+                break;
+            default:
+                $lista = self::obtenerJsonTodasLasMarcas();
+                break;
         }
-        return $jsonCtaegorias;
+        $json = self::crearJSonTemplateMarca($lista);
+        return $json;
     }
-
-
 }

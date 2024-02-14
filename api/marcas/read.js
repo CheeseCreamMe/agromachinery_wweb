@@ -8,9 +8,11 @@ function consultarMarcasServidor(callback)
     $.ajax
     ({
         url: 'http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php',
-        type: 'get',
+        type: 'post',
+        data: {categoriaSeleccionada: categoria},
         success: function(response)
         {
+            console.log(response);
             // Parseamos la respuesta a JSON
             var categorias = JSON.parse(response);
             // Llamamos a la función de callback con las categorías como argumento
