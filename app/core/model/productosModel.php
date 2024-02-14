@@ -94,7 +94,7 @@ class productosModelo extends connection
         } else {
             return array(
                 "title" => "Error",
-                "text" => "No se pudo eliminar el producto con ID: " . $productoId,
+                "text" => "No se afecto ninguna columna ID: " . $productoId,
                 "icon" => "error"
             );
         }

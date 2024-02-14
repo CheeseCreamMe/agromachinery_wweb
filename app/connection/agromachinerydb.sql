@@ -40,3 +40,11 @@ CREATE TABLE productos_atributos (
     FOREIGN KEY (producto_id) REFERENCES producto(id),
     FOREIGN KEY (atributo_id) REFERENCES atributos(id)
 );
+
+CREATE TABLE marca_categoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    marca_id INT NOT NULL,
+    categoria_id INT NOT NULL,
+    FOREIGN KEY (marca_id) REFERENCES marca(id),
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);

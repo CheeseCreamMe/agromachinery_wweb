@@ -134,13 +134,15 @@ function displayProducts(products) {
     productContainer.innerHTML = '';
 
     products.forEach((product) => {
-        if (product.descuento == null || product.descuento === 0) {
-            descuento = "0%";
+        if (product.descuento == null || product.descuento == 0) {
+            descuento = "precio regular";
+            precioRegular = "Sin descuento";
             precio = product.precio;
         }
         else {
             descuento = 'ahorras: $' + (product.precio - product.descuento);
             precio = product.descuento;
+            precioRegular = product.precio;
         }
         productContainer.insertAdjacentHTML("beforeend", `
         <div class="card-product">
@@ -154,7 +156,8 @@ function displayProducts(products) {
           </div>
         </div>
         <div>
-        <h2 class="price-discount">${product.precio}</h2>
+        <h3 class="exist" >disponible: ${product.inventario}</h3>
+        <h2 class="price-discount">${precioRegular}</h2>
         </div>
         <div class="content-card-product">
           <h3>${product.nombre}</h3>

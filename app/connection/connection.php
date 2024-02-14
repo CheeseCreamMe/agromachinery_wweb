@@ -35,16 +35,20 @@ class connection
 
     protected function ejecutarConsultaSimple($sql)
     {
-        $respuesta = self::connect()->prepare($sql);
-        $respuesta->execute();
-        return $respuesta->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = self::connect()->prepare($sql);
+        $conexion->execute();
+        $respuesta = $conexion->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = null;
+        return $respuesta;
     }
 
     protected function ejecutarSelectTemplate($tabla)
     {
-        $respuesta = self::connect()->prepare("SELECT * FROM " . $tabla);
-        $respuesta->execute();
-        return $respuesta->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = self::connect()->prepare("SELECT * FROM " . $tabla);
+        $conexion->execute();
+        $respuesta = $conexion->fetchAll(PDO::FETCH_ASSOC);
+        $conexion = null;
+        return $respuesta;
     }
 
     protected function crearJSonTemplateProductos($datos)

@@ -84,14 +84,15 @@ class productoController extends productosModelo
         return $tabla;
     }
 
-    public function eliminarProductoServidor($id)
+    public function eliminarProductoServidor()
     {
         try {
+            $id = $_POST['id'];
             $respuesta = self::eliminarProductoId($id);
         } catch (\Throwable $th) {
             $respuesta = array(
                 "title" => "¡Ups!",
-                "text" => "Parece que no se ha podido eliminar el producto.",
+                "text" => "Parece que no se ha podido eliminar el producto." .$th,
                 "icon" => "error"
             );
         }

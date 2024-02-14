@@ -4,7 +4,7 @@ var imagenRuta_servidor;
 
 btnCrear.on('click', function (event) {
     event.preventDefault();
-
+    var precioDescuento = ($('#product-discount-price').val() !== null) ? $('#product-discount-price').val() : 0;
     if (ValuesVerification()) {
         var inputFile = $('#formFile')[0].files[0];
         guardarImagen(inputFile, function (response) {
@@ -13,7 +13,7 @@ btnCrear.on('click', function (event) {
             const data = {
                 nombre: $('#product-name').val(),
                 precio: $('#product-price').val(),
-                precio_descuento: $('#product-discount-price').val(),
+                precio_descuento: precioDescuento,
                 descripcion: $('#product-description').val(),
                 inventario: $('#product-inventory').val(),
                 categoria: $('#product-category').val(),
@@ -72,12 +72,11 @@ function ValuesVerification() {
     // Obtener los valores de los input y select
     var productName = $("#product-name").val();
     var productPrice = $("#product-price").val();
-    var productDiscountPrice = $("#product-discount-price").val();
     var productCategory = $("#product-category").val();
     var mySelect = $("#mySelect").val();
 
     // Comprobar las condiciones
-    if (productName.length < 5 || productPrice == 0 || productDiscountPrice == 0 || productCategory == 0 || productCategory == null || mySelect == 0 || mySelect == null) {
+    if (productName.length < 5 || productPrice == 0 || productPrice== null ||productCategory == 0 || productCategory == null || mySelect == 0 || mySelect == null) {
         // Mostrar alerta con SweetAlert
         return false;
     } else {

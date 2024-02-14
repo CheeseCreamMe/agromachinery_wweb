@@ -193,8 +193,15 @@
 .add-cart:hover i {
   color: #fff;
 }
+.exist{
+  font-size: 1rem;
+  font-weight: 300;
+  color:#3f3f3f;
+  margin-left: 0.5rem;
+  text-align: left ;
+}
 
-.content-card-product .price {
+.price {
   justify-self: end;
   align-self: center;
   color: #000000;

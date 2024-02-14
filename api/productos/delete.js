@@ -2,19 +2,14 @@ function eliminarProducto(button) {
     var productCode = $(button).data('product-code');
 
     Swal.fire({
-        title: "Desea Eliminar el producto con código: " + productCode,
+        title: "¿Desea eliminar el producto con código: " + productCode + "?",
         showDenyButton: true,
-        showCancelButton: true,
-        showCancelButton: false,
         icon: "info",
-        confirmButtonText: "Conservar",
-        denyButtonText: `Eliminar`
+        confirmButtonText: "Eliminar",
+        denyButtonText: "Cancelar"
     }).then((result) => {
         if (result.isConfirmed) {
-            //no desea eliminar
-            Swal.fire("No se ha Eliminado!", "Cancelo la acción, el producto no se ha eliminado", "warning");
-        } else if (result.isDenied) {
-        //desea eliminar el producto
+            // Se confirma la eliminación del producto
             $.ajax({
                 url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
                 type: "POST",
@@ -25,6 +20,9 @@ function eliminarProducto(button) {
                     actualizarTabla();
                 }
             });
+        } else if (result.isDenied) {
+            // Se cancela la eliminación del producto
+            Swal.fire("No se ha eliminado", "Canceló la acción, el producto no se ha eliminado", "warning");
         }
     });
 }
