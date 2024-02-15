@@ -1,7 +1,13 @@
-consultarMarcasServidor(function(categorias)
-{
-    generarSelectMarcas('#mySelect', categorias);
-});
+if ($('#mySelect').length) {
+    consultarMarcasServidor(function(categorias) {
+        generarSelectMarcas('#mySelect', categorias);
+    });
+}
+else{
+    console.log("cargando..");
+    cargarTabla();
+}
+
 
 function consultarMarcasServidor(callback)
 {
@@ -12,7 +18,6 @@ function consultarMarcasServidor(callback)
         data: {categoriaSeleccionada: categoria},
         success: function(response)
         {
-            console.log(response);
             // Parseamos la respuesta a JSON
             var categorias = JSON.parse(response);
             // Llamamos a la función de callback con las categorías como argumento
@@ -23,26 +28,86 @@ function consultarMarcasServidor(callback)
 
 function generarSelectMarcas(select, categorias)
 {
-    // Limpiamos el select
     $(select).empty();
 
-    // Añadimos una opción nula
     var optionNula = $('<option/>')
         .attr('value', '')
         .text('ninguna marca seleccionada');
 
-    // La añadimos al select
     $(select).append(optionNula);
 
-    // Recorremos el array de categorías
     categorias.forEach(function(categoria)
     {
-        // Creamos una opción para cada categoría
         var option = $('<option/>')
             .attr('value', categoria.codigo)
             .text(categoria.nombre);
 
-        // La añadimos al select
         $(select).append(option);
+    });
+}
+
+function cargarTabla() {
+    var table = $("#marcas").DataTable({
+         data : $.ajax(
+            {
+                url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
+                type: "POST",
+                data: { opcion: "verTodo" },
+            }),
+        columns: [
+            { data: 'codigo' },
+            { data: 'nombre' },
+            {
+                data: 'imagen',
+                orderable: false,
+                searchable: false,
+                render: function ( data, type, row ) {
+                    if (type === 'display') {
+                        data = '<img src="../' + data + '" width="50" height="50" alt="imagen del producto"/>';
+                    }
+        
+                    return data;
+                }
+            },
+            {
+                defaultContent: ``,
+                orderable: false,
+                searchable: false,
+                createdCell: function (td, cellData, rowData, row, col) {
+                    var button = $('<button class="btn btn-primary edit-button"></button>');
+                    button.attr('data-product-code', rowData.codigo);
+                    button.text('Editar');
+                    $(td).html(button);
+                }
+            },
+            {
+                defaultContent: `<button class="btn btn-danger delete-button" onclick="eliminarProducto(this)">Eliminar</button>`,
+                orderable: false,
+                searchable: false,
+                createdCell: function (td, cellData, rowData, row, col) {
+                    $(td).find('.delete-button').attr('data-product-code', rowData.codigo);
+                }
+            }
+            
+        ]
+    });
+    actualizarTabla();
+}
+
+function actualizarTabla(){
+    $.ajax(
+        {
+            url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
+            type: "POST",
+            data: { opcion: "verTodo" },
+            success:function (response) {
+                datos = JSON.parse(response);
+                console.log(datos)
+                var table = $('#marcas').DataTable();
+
+                table.clear().draw();
+
+                table.rows.add(datos).draw();
+            }
     });
 }
