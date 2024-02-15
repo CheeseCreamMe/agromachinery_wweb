@@ -25,4 +25,19 @@ class MarcaController extends MarcasModel
         $json = self::crearJSonTemplateMarca($lista);
         return $json;
     }
+
+    public function eliminarMarcaServidor()
+    {
+        try {
+            $id = $_POST['id'];
+            $respuesta = self::eliminarMarcaModelo($id);
+        } catch (\Throwable $th) {
+            $respuesta = array(
+                "title" => "¡Ups!",
+                "text" => "Parece que no se ha podido eliminar el producto." .$th,
+                "icon" => "error"
+            );
+        }
+        return $respuesta;
+    }
 }

@@ -46,4 +46,37 @@ class marcasModel extends connection
         $lista = self::ejecutarConsultaSimple($sql);
         return $lista;
     }
+
+    protected function eliminarMarcaModelo($id)
+{
+    $brandId = self::limpiarCadena($id);
+
+    try {
+        $conexion = self::connect();
+        $conexion->beginTransaction();
+
+        $stmt_relaciones = $conexion->prepare("DELETE FROM marca_categoria WHERE marca_id = ?");
+        $stmt_relaciones->execute([$brandId]);
+
+        $stmt_marca = $conexion->prepare("DELETE FROM marca WHERE id = ?");
+        $stmt_marca->execute([$brandId]);
+
+        $conexion->commit();
+
+        return array(
+            "title" => "Eliminado",
+            "text" => "Se eliminó correctamente la marca con ID: " . $brandId,
+            "icon" => "success"
+        );
+    } catch (PDOException $e) {
+        // Si ocurre algún error, revertir la transacción
+        $conexion->rollBack();
+        return array(
+            "title" => "Error",
+            "text" => "No fue posible eliminar la marca con ID: " . $brandId . ". Error: " . $e->getMessage(),
+            "icon" => "error"
+        );
+    }
+}
+
 }

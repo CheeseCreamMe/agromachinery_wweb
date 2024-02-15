@@ -10,7 +10,8 @@ if (isset($_POST['opcion'])) {
             $tabla = $instancia->consultarMarcasControlller($categoria);
             $total = json_encode($tabla);
             break;
-        
+        case 'eliminar':
+            $total = json_encode($instancia->eliminarMarcaServidor());
         default:
             # code...
             break;
