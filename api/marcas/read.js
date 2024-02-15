@@ -81,7 +81,7 @@ function cargarTabla() {
                 }
             },
             {
-                defaultContent: `<button class="btn btn-danger delete-button" onclick="eliminarProducto(this)">Eliminar</button>`,
+                defaultContent: `<button class="btn btn-danger delete-button" onclick="eliminarMarca(this)">Eliminar</button>`,
                 orderable: false,
                 searchable: false,
                 createdCell: function (td, cellData, rowData, row, col) {
