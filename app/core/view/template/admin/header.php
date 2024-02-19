@@ -22,9 +22,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-md">
-            <a class="navbar-brand" href="#">Administrador</a>
+    <nav class="navbar navbar-expand bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home">Administrador</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <div class="nav-i   tem">
+                    <button type="submit" class="btn btn-danger">Salir</button>
+                </div>
+            </div>
         </div>
+        </div>
+        
     </nav>
-    <main class="container">
