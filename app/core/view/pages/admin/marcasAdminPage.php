@@ -1,20 +1,12 @@
 <div class="container p-2">
     <div class="row">
-        <div class="col">
-            <div class=" justify-content-center" id="respuesta">
-                    <!--sección para mostrar los resultados de búsqueda por nombre o id-->
-                    <?php require_once "./app/core/view/pages/admin/marca/editar.php"; ?>
-                </div>
-        </div>
         <div class="col justify-content-center">
-            <div class="col'md'5">
                 <?php require_once "./app/core/view/pages/admin/marca/agregar.php"; ?>
-            </div>
         </div>
     </div>
 </div>
 
-<div class="row p-4">
+<div class="row p-4" style="width: 100%;overflow-x: auto;white-space: nowrap;">
     <?php require_once  "./app/core/view/pages/admin/marca/ver.php";?>
 </div>
 
