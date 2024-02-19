@@ -6,6 +6,24 @@ if ($peticionAjax) {
 }
 class MarcaController extends MarcasModel
 {
+    public function agregarMarcaServidor()
+    {
+
+        $nombre = self::limpiarCadena($_POST['nombre']);
+        $imagen = $_POST['imagen'];
+        $categorias = $_POST['categorias'];
+
+        sort($categorias);
+
+        $bd_response = self::agregarMarcaModel($nombre,$imagen, $categorias);
+
+        if($bd_response) {
+            return "se ha agregado una nueva marca con nombre : {$nombre} y se han asignado las categorías correctamente.";
+        }
+        else {
+            return "no se ha agregado la marca con nombre: {$nombre} ni se ha agregado los datos asignados a ella.";
+        }
+    }
     public function consultarMarcasControlller($categoria)
     {
         switch ($categoria) {
@@ -34,7 +52,7 @@ class MarcaController extends MarcasModel
         } catch (\Throwable $th) {
             $respuesta = array(
                 "title" => "¡Ups!",
-                "text" => "Parece que no se ha podido eliminar el producto." .$th,
+                "text" => "Parece que no se ha podido eliminar el producto." . $th,
                 "icon" => "error"
             );
         }

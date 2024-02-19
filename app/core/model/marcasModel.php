@@ -6,6 +6,36 @@ if ($peticionAjax) {
 }
 class marcasModel extends connection
 {
+    protected function agregarMarcaModel($nombreMarca, $imagenMarca, $categorias)
+    {
+        $conexion = self::connect();
+        try {
+            
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $conexion->beginTransaction();
+            
+            $stmtMarca = $conexion->prepare("INSERT INTO marca (nombre, imagen) VALUES (?, ?)");
+            $stmtMarca->execute([$nombreMarca, $imagenMarca]);
+            
+            $marcaId = $conexion->lastInsertId();
+            
+            $stmtRelacion = $conexion->prepare("INSERT INTO marca_categoria (marca_id, categoria_id) VALUES (?, ?)");
+            foreach ($categorias as $categoria) {
+                $stmtRelacion->execute([$marcaId, $categoria]);
+            }
+    
+            $conexion->commit();
+            
+            $conexion = null;
+
+            return true; 
+        } catch (PDOException $e) {
+            $conexion->rollBack();
+            $conexion = null;
+            return false; // Error
+        }
+    }
     protected function obtenerJsonTodasLasMarcas()
     {
         //todas las marcas
