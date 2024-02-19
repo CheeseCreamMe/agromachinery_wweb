@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($name === 'admin' && $password === '1234') {
         // Set the session variable
         $_SESSION['admin'] = true;
-        header("Location: products");
+        header("Location: home");
         exit;
     } else {
         // Display an error message
