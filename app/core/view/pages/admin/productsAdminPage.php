@@ -10,6 +10,9 @@
     <?php require_once  "./app/core/view/pages/admin/productos/ver.php";?>
 </div>
 
+<script>
+    let categoria = "Todas";
+</script>
 <script src=".././api/marcas/read.js"></script>
 <script src=".././api/productos/read.js"></script>
 <script src=".././api/productos/delete.js"></script>

@@ -10,7 +10,7 @@ try {
             consultarVeterinariaServidor();
             break;
         default:
-            console.log('Categoría desconocida');
+            cargarTabla();
             break;
     }
 } catch (error) {
