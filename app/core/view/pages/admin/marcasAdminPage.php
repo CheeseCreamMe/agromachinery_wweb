@@ -11,6 +11,7 @@
 </div>
 
 <script src=".././api/marcas/read.js"></script>
+<script src=".././api/marcas/create.js"></script>
 <script src=".././api/marcas/delete.js"></script>
 <script>
 
