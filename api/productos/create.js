@@ -31,6 +31,7 @@ btnCrear.on('click', function (event) {
                         text: response,
                         icon: "success"
                     })
+                    limpiarCampos();
                     actualizarTabla();
                 },
             })
@@ -44,6 +45,17 @@ btnCrear.on('click', function (event) {
         });
     }
 });
+
+function limpiarCampos() {
+    $('#product-name').val('');
+    $('#product-price').val('');
+    $('#product-discount-price').val('');
+    $('#product-description').val('');
+    $('#product-inventory').val('');
+    $('#product-category').val('');
+    $('#mySelect').val('');
+    $('#formFile').val('');
+}
 
 function guardarImagen(inputFile, callback) {
     if (inputFile) {
