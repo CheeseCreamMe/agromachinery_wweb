@@ -140,8 +140,8 @@ function displayProducts(products) {
             precio = product.precio;
         }
         else {
-            descuento = 'ahorras: $' + (product.precio - product.descuento);
-            precio = product.descuento;
+            descuento = 'ahorras: $' +product.descuento;
+            precio =product.precio - product.descuento;
             precioRegular = product.precio;
         }
         productContainer.insertAdjacentHTML("beforeend", `
