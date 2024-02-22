@@ -10,7 +10,7 @@
         <form id="add-form" class="d-grid gap-2">
             <div class="input-group">
                 <span class="input-group-text">Nombre:</span>
-                <input class="form-control" type="text" placeholder="Ingrese el nombre del producto" id="product-name">
+                <input class="form-control" type="text" placeholder="Ingrese el nombre del producto" id="brand-name">
             </div>
             <div class="input-group">
                 <span class="input-group-text">Imagen:</span>

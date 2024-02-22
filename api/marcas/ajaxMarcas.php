@@ -12,6 +12,9 @@ if (isset($_POST['opcion'])) {
             break;
         case 'eliminar':
             $total = json_encode($instancia->eliminarMarcaServidor());
+        
+        case 'agregar':
+            $total = json_encode("hola mundo");
         default:
             # code...
             break;
