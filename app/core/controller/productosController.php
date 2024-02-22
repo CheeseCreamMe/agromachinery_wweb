@@ -1,11 +1,7 @@
 <?php
-if ($peticionAjax) {
-    require_once "../../app/core/model/productosModel.php";
-} else {
-    require_once "./app/core/model/productosModel.php";
-}
+require_once $peticionAjax ? "../../app/core/model/productosModel.php" : "./app/core/model/productosModel.php";
 
-class productoController extends productosModelo
+class ProductoController extends ProductosModelo
 {
     public function agregarProductoController()
     {
@@ -17,7 +13,7 @@ class productoController extends productosModelo
         $categoria = $_POST['categoria'];
         $marca = $_POST['marca'];
         $rutaImagen = $_POST['imagen'];
-    
+
         $data = [
             "nombre" => $nombre,
             "precio" => $precio,
@@ -28,74 +24,64 @@ class productoController extends productosModelo
             "marca" => $marca,
             "rutaImagen" => $rutaImagen
         ];
-        
-        $bd_response = self::agregarProducto($data);
-        return $bd_response;
+
+        return self::agregarProducto($data);
     }
+
     public function obtenerJsonProductos($categoria)
     {
         switch ($categoria) {
             case 'Maquinaria':
-                $datos = $this->obtenerJsonProductosPorCategoria($categoria);
-                break;
             case 'Agricola':
-                $datos = $this->obtenerJsonProductosPorCategoria($categoria);
             case 'Veterinaria':
                 $datos = $this->obtenerJsonProductosPorCategoria($categoria);
                 break;
             case 'Todos':
                 $datos = $this->obtenerJsonProductosDefault();
                 break;
+            default:
+                $datos = [];
+                break;
         }
         return $datos;
     }
+
     private function obtenerJsonProductosPorCategoria($categoria)
     {
         try {
             $datos = self::obtenerPorCategoria($categoria);
-            $tabla = self::crearJSonTemplateProductos($datos);
+            return self::crearJSonTemplateProductos($datos);
         } catch (\Throwable $th) {
-            $tabla = array();
-            $tabla[] = array(
-                'codigo' => "0",
-                'nombre' => "no hay productos",
-                'precio' => "0000",
-                'descuento' => "0000",
-                'imagen' => "./public/images/banner_home.jpg",
-            );
+            return $this->handleError($th);
         }
-        return $tabla;
     }
+
     private function obtenerJsonProductosDefault()
     {
         try {
             $datos = self::obtenerTablaDeTodosLosProductos();
-            $tabla = self::crearJSonTemplateProductos($datos);
+            return self::crearJSonTemplateProductos($datos);
         } catch (\Throwable $th) {
-            $tabla = array();
-            $tabla[] = array(
-                'codigo' => "0",
-                'nombre' => "no hay productos",
-                'precio' => "0000",
-                'descuento' => "0000",
-                'imagen' => "./public/images/banner_home.jpg",
-            );
+            return $this->handleError($th);
         }
-        return $tabla;
     }
 
     public function eliminarProductoServidor()
     {
         try {
             $id = $_POST['id'];
-            $respuesta = self::eliminarProductoId($id);
+            return self::eliminarProductoId($id);
         } catch (\Throwable $th) {
-            $respuesta = array(
-                "title" => "¡Ups!",
-                "text" => "Parece que no se ha podido eliminar el producto." .$th,
-                "icon" => "error"
-            );
+            return $this->handleError($th);
         }
-        return $respuesta;
+    }
+
+    private function handleError($error)
+    {
+        return [
+            "title" => "¡Ups!",
+            "text" => "Parece que ha ocurrido un error ",
+            "icon" => "error"
+        ];
     }
 }
