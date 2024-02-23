@@ -1,27 +1,35 @@
 <?php
+
 $peticionAjax = true;
 require_once "../../app/core/controller/marcasController.php";
+
 $instancia = new MarcaController();
+$total = "";
+
 if (isset($_POST['opcion'])) {
-    $variable = $_POST['opcion'];
-    switch ($variable) {
-        case 'verTodo':
-            $categoria = "ver todo";
-            $tabla = $instancia->consultarMarcasControlller($categoria);
-            $total = json_encode($tabla);
+    $opcion = $_POST['opcion'];
+    switch ($opcion) {
+        case 'editar':
+            
             break;
         case 'eliminar':
             $total = json_encode($instancia->eliminarMarcaServidor());
-        
+            break;
         case 'agregar':
             $total = json_encode("hola mundo");
+            break;
         default:
-            # code...
+            $total = consultarMarcas($instancia, "ver todo");
             break;
     }
-} else {
+} else if (isset($_POST['categoriaSeleccionada'])) {
     $categoria = $_POST['categoriaSeleccionada'];
-    $tabla = $instancia->consultarMarcasControlller($categoria);
-    $total = json_encode($tabla);
+    $total = consultarMarcas($instancia, $categoria);
 }
-    echo $total;
+
+echo $total;
+
+function consultarMarcas($instancia, $categoria) {
+    $tabla = $instancia->consultarMarcasControlller($categoria);
+    return json_encode($tabla);
+}
