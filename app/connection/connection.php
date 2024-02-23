@@ -11,8 +11,14 @@ class connection
 
     public function connect()
     {
-        $enlace = new PDO(SGBD, USER, PASSWORD);
-        return $enlace;
+        try {
+            //code... 
+            $enlace = new PDO(SGBD, USER, PASSWORD);
+            return $enlace;
+        } catch (\Throwable $th) {
+            echo "<script>Swal.fire('Error','No es posible conectar con la base de datos','error'); </script>";
+        }
+
     }
 
     protected function limpiarCadena($cadena)
@@ -31,7 +37,7 @@ class connection
         $cadena = preg_replace($valores_eliminar, "", $cadena);
         return $cadena;
     }
-    
+
 
     protected function ejecutarConsultaSimple($sql)
     {
@@ -65,9 +71,9 @@ class connection
                 'descuento' => $elemento['precio_descuento'],
                 'descripcion' => $elemento['descripcion'],
                 'marca' => $elemento['marca'],
-                'categoria' => $elemento['categoria'], 
+                'categoria' => $elemento['categoria'],
                 'imagen' => $imagen,
-                'inventario' => $elemento['inventario'] 
+                'inventario' => $elemento['inventario']
             );
         }
         return $json;

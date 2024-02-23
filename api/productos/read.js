@@ -79,16 +79,20 @@ function actualizarTabla() {
         type: "POST",
         data: { opcion: "verTodo" },
         success: function (response) {
-            response = JSON.parse(response);
+            try {
+                response = JSON.parse(response);
 
-            // Get the DataTable instance
-            var table = $("#productos").DataTable();
-
-            // Clear the existing data from the table
-            table.clear().draw();
-
-            // Add the new data to the table
-            table.rows.add(response).draw();
+                // Get the DataTable instance
+                var table = $("#productos").DataTable();
+    
+                // Clear the existing data from the table
+                table.clear().draw();
+    
+                // Add the new data to the table
+                table.rows.add(response).draw();
+            } catch (error) {
+                Swal.fire("error","Ha ocurrido un error, no se pueden encontrar los datos para mostrar en la tabla","erro");
+            }
         }
     });
 }
@@ -100,7 +104,12 @@ function consultarVeterinariaServidor() {
         type: "POST",
         data: { opcion: "verVeterinaria" },
         success: function (response) {
-            displayProducts(JSON.parse(response));
+            try {
+                displayProducts(JSON.parse(response));
+            } catch (error) {
+                Swal.fire("Hay un problema","Parece no hay productos agregados a esta categoría,Intenta probar mas tarde","warning")
+            }
+            
         },
     });
 }

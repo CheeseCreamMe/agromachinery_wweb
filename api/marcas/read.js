@@ -18,10 +18,13 @@ function consultarMarcasServidor(callback)
         data: {categoriaSeleccionada: categoria},
         success: function(response)
         {
-            // Parseamos la respuesta a JSON
-            var categorias = JSON.parse(response);
-            // Llamamos a la función de callback con las categorías como argumento
+            try {
+                 var categorias = JSON.parse(response);
             callback(categorias);
+            } catch (error) {
+                Swal.fire("Error 500","Hay problemas para conectar al servidor y obtener los datos, Intenta probar mas tarde","warning");
+            }
+           
         }
     });
 }
@@ -101,13 +104,18 @@ function actualizarTabla(){
             type: "POST",
             data: { opcion: "verTodo" },
             success:function (response) {
-                datos = JSON.parse(response);
-                console.log(datos)
+                try {
+                                    datos = JSON.parse(response);
+
                 var table = $('#marcas').DataTable();
 
                 table.clear().draw();
 
                 table.rows.add(datos).draw();
+                } catch (error) {
+                    Swal.fire("Error", "Ha ocurrido un error, y no se han encontrado los datos para mostrar en la tabla","error");
+                }
+
             }
     });
 }
