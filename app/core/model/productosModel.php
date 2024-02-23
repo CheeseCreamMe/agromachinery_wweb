@@ -2,7 +2,7 @@
 if ($peticionAjax) {
     require_once "../../app/connection/connection.php";
 } else {
-    require_once "./app/connection/connecction.php";
+    require_once "./app/connection/connection.php";
 }
 
 class productosModelo extends connection
