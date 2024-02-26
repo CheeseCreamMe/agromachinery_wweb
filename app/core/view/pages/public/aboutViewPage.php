@@ -56,8 +56,9 @@ require_once "./public/values/aboutUS.php";
         </div>
     </div>
 </section>
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.752559512504!2d-89.70442842506313!3d13.97332868644209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62950c12f3668b%3A0x1edca7010ac3a4af!2sAgromachinery!5e0!3m2!1ses-419!2ssv!4v1708970181181!5m2!1ses-419!2ssv" class="row p-2" style="width: 100%; height: 500px; margin:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<section class="p-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.752559512504!2d-89.70442842506313!3d13.97332868644209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62950c12f3668b%3A0x1edca7010ac3a4af!2sAgromachinery!5e0!3m2!1ses-419!2ssv!4v1708970181181!5m2!1ses-419!2ssv"  style="width: 100%; height: 500px; margin:0;border-radius:1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
 
 
 <section class="new-banner">
