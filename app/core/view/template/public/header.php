@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agromachinery</title>
     <meta name="description" content="Agrotienda en línea y distribuidor de maquinaria de uso agrícola">
     <!-- Icono -->
     <link rel="icon" href="./public/icons/logo-agromachinery.webp">
@@ -54,7 +53,7 @@
                     </h1>
                 </div>
                 <section class="content-column">
-                    <span class="text">Soporte</span>
+                    <span class="text">Contáctenos</span>
                     <span class="number">
                         <?php echo HeadSETT . SUPPORT_NUMBER ?>
                     </span>

@@ -1,7 +1,7 @@
 <?php
 require_once "./public/values/aboutUS.php";
 ?>
-<title>Sobre nosotros</title>
+<title>Agromachinery-Sobre Nosotros</title>
 <section class="container">
     <div class="row p-2">
         <h1>Acerca de nosotros</h1>

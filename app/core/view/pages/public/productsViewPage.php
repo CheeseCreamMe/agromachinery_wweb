@@ -1,5 +1,5 @@
 <?php $textovar = (isset($text)) ? $text : 'Maquinaria'; ?>
-<title>Productos ||<?php echo $textovar; ?> </title>
+<title>Agromachinery-Productos ||<?php echo $textovar; ?> </title>
 <div class="container">
 	<div class="row p-2 text-center">
         <h1><?php

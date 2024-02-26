@@ -27,7 +27,7 @@
         </div>
         <div class="social-icons">
             <span class="facebook">
-                <i class="fa-brands fa-facebook-f"></i>
+                <a href="https://www.facebook.com/Agromachinery"><i class="fa-brands fa-facebook-f"></i></a>
             </span>
             <span class="twitter">
                 <i class="fa-brands fa-twitter"></i>
