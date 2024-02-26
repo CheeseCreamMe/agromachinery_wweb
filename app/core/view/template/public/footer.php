@@ -43,6 +43,14 @@
         </div>
     </div>
 </footer>
+<script>
+  // Espera a que la página cargue completamente
+  window.addEventListener("load", function () {
+    // Oculta el indicador de carga
+    var loader = document.getElementById("loader");
+    loader.style.display = "none";
+  });
+</script>
 <!-- Footer -->
 </body>
 <!-- Bootstrap JS -->

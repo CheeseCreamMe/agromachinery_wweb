@@ -36,6 +36,10 @@
 </head>
 
 <body>
+    <div id="loader" class="loader-container">
+        <span class="loader"></span>
+    </div>
+
     <header>
         <div class="top-bar">
             <div class="container hero">
