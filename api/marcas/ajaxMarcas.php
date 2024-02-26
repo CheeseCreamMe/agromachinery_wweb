@@ -16,7 +16,7 @@ if (isset($_POST['opcion'])) {
             $total = json_encode($instancia->eliminarMarcaServidor());
             break;
         case 'agregar':
-            $total = json_encode("hola mundo");
+            $total = json_encode($instancia->agregarMarcaServidor());
             break;
         default:
             $total = consultarMarcas($instancia, "ver todo");

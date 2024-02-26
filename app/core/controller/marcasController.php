@@ -16,12 +16,14 @@ class MarcaController extends MarcasModel
         sort($categorias);
 
         $bd_response = self::agregarMarcaModel($nombre,$imagen, $categorias);
+        
+        var_dump($bd_response);
 
         if($bd_response) {
-            return "se ha agregado una nueva marca con nombre : {$nombre} y se han asignado las categorías correctamente.";
+            return "se ha agregado una nueva marca con nombre : {$nombre} y se han asignado las categorías correctamente./success";
         }
         else {
-            return "no se ha agregado la marca con nombre: {$nombre} ni se ha agregado los datos asignados a ella.";
+            return "no se ha agregado la marca con nombre: {$nombre} ni se ha agregado los datos asignados a ella./error";
         }
     }
     public function consultarMarcasControlller($categoria)

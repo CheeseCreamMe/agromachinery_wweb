@@ -10,9 +10,7 @@ class marcasModel extends connection
     {
         $conexion = self::connect();
         try {
-            
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
             $conexion->beginTransaction();
             
             $stmtMarca = $conexion->prepare("INSERT INTO marca (nombre, imagen) VALUES (?, ?)");
@@ -28,14 +26,15 @@ class marcasModel extends connection
             $conexion->commit();
             
             $conexion = null;
-
-            return true; 
+    
+            return array('success' => true, 'message' => 'Marca agregada exitosamente'); // Éxito
         } catch (PDOException $e) {
             $conexion->rollBack();
             $conexion = null;
-            return false; // Error
+            return array('success' => false, 'message' => 'Error al agregar la marca: ' . $e->getMessage()); // Error
         }
     }
+    
     protected function obtenerJsonTodasLasMarcas()
     {
         //todas las marcas
