@@ -26,6 +26,7 @@ class MarcaController extends MarcasModel
     }
     public function consultarMarcasControlller($categoria)
     {
+        try{
         switch ($categoria) {
             case 'Maquinaria':
                 $lista = self::obtenerJsonMarcasMaquinaria();
@@ -42,6 +43,10 @@ class MarcaController extends MarcasModel
         }
         $json = self::crearJSonTemplateMarca($lista);
         return $json;
+    }
+    catch (\Throwable $th) {
+        return "Error al obtener las marcas";
+    }
     }
 
     public function eliminarMarcaServidor()

@@ -16,7 +16,7 @@ class connection
             $enlace = new PDO(SGBD, USER, PASSWORD);
             return $enlace;
         } catch (\Throwable $th) {
-            echo "<script>Swal.fire('Error','No es posible conectar con la base de datos','error'); </script>";
+            
         }
 
     }
