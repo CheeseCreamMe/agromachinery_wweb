@@ -6,7 +6,7 @@ $(document).ready(function () {
         let categories = gatherSelectedCategories();
         let inputFile = $('#formFileMarca')[0].files[0];
 
-        guardarImagen(inputFile, function(response) {
+        guardarImagen(inputFile, function (response) {
             imagenRuta = response;
             imagenRuta_servidor = imagenRuta.substring(4);
             const data = {
@@ -34,12 +34,19 @@ function sendDataToServer(data) {
         type: 'POST',
         url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
         data: data,
-        success: function(response){
-            showSuccessAlert(response);
+        success: function (response) {
+            let respuesta = response.split("/");
+            let mensaje = respuesta[0]; // Mensaje de error o éxito
+            console.log(respuesta)
+            if (respuesta[1] === 'error"') {
+                showErrorAlert(mensaje);
+            } else {
+                showSuccessAlert(mensaje);
+            }
+
             clearFields();
         },
-        error: function(xhr, status, error) {
-            console.error("Error al enviar la solicitud AJAX:", error);
+        error: function (xhr, status, error) {
             showErrorAlert();
         }
     });
@@ -77,10 +84,10 @@ function showSuccessAlert(response) {
     });
 }
 
-function showErrorAlert() {
+function showErrorAlert(response) {
     Swal.fire({
         title: "Error",
-        text: "No se pudo completar la solicitud. Por favor, inténtalo de nuevo más tarde.",
+        text: response,
         icon: "error"
     });
 }

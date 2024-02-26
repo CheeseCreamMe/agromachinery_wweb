@@ -5,6 +5,7 @@ try {
 }
 function consultarProductos(categoria) {
     let requestData;
+    let tableList = false;
     switch (categoria) {
         case 'Agricola':
             requestData = "verAgricola";
@@ -13,30 +14,34 @@ function consultarProductos(categoria) {
             requestData = "verMaquinaria";
             break;
         case 'Veterinaria':
-            requestData = "veVeterinaria";
+            requestData = "verVeterinaria";
+            break;
+        case 'Todas':
+            cargarTabla();
+            tableList = true;
             break;
         default:
             requestData = "verTodo";
             break;
+
     }
+    if (tableList != true) {
+        $.ajax({
+            url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+            type: "POST",
+            data: { opcion: requestData },
+            success: function (response) {
+                try {
 
-    $.ajax({
-        url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
-        type: "POST",
-        data: { opcion: requestData },
-        success: function (response) {
-            console.log(response);
-            try {
-                if (response.count > 0) {
                     displayProducts(JSON.parse(response));
-                }
-                else { Swal.fire("Hay un problema", "Parece no hay productos agregados a esta categoría,Intenta probar mas tarde", "warning"); }
-            } catch (error) {
-                Swal.fire("error: 500", "Hubo un problema al intentar conectar con la base de datos, ", "error");
-            }
 
-        },
-    });
+                } catch (error) {
+                    Swal.fire("error: 500", "Hubo un problema al intentar conectar con la base de datos, ", "error");
+                }
+
+            },
+        });
+    }
 }
 
 function cargarTabla() {
@@ -147,12 +152,12 @@ function displayProducts(products) {
         </div>
         <div>
         <h3 class="exist" >disponible: ${product.inventario}</h3>
-        <h2 class="price-discount">${precioRegular}</h2>
+        <h2 class="price-discount">$ ${precioRegular}</h2>
         </div>
         <div class="content-card-product">
         <h3>${product.nombre}</h3>
         <span class="add-cart"><i class="fa-solid fa-basket-shopping"></i></span>
-        <p class="price">${precio}</p>
+        <p class="price">$ ${precio}</p>
         </div>
     </div>
         `);
