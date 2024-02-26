@@ -1,10 +1,9 @@
-if ($('#mySelect').length) {
+if ($('#mySelect').length ) {
     consultarMarcasServidor(function(categorias) {
         generarSelectMarcas('#mySelect', categorias);
     });
 }
 else{
-    console.log("cargando..");
     cargarTabla();
 }
 
@@ -19,12 +18,12 @@ function consultarMarcasServidor(callback)
         success: function(response)
         {
             try {
-                 var categorias = JSON.parse(response);
+                var categorias = JSON.parse(response);
             callback(categorias);
             } catch (error) {
-                Swal.fire("Error 500","Hay problemas para conectar al servidor y obtener los datos, Intenta probar mas tarde","warning");
+                console.log(error);
+                Swal.fire("Error 500","Hay problemas para conectar al servidor y obtener los datos, Intenta probar mas tarde","error");
             }
-           
         }
     });
 }
@@ -51,7 +50,7 @@ function generarSelectMarcas(select, categorias)
 
 function cargarTabla() {
     var table = $("#marcas").DataTable({
-         data : $.ajax(
+        data : $.ajax(
             {
                 url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
                 type: "POST",
