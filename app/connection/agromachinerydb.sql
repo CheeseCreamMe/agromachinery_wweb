@@ -1,6 +1,6 @@
-CREATE DATABASE agomachinery;
+CREATE DATABASE agromachinery;
 
-USE agomachinery;
+USE agromachinery;
 
 CREATE TABLE categoria (
     id INT AUTO_INCREMENT PRIMARY KEY,
