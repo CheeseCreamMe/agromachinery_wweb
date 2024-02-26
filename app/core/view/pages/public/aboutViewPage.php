@@ -4,7 +4,7 @@ require_once "./public/values/aboutUS.php";
 <title>Sobre nosotros</title>
 <section class="container">
     <div class="row p-2">
-        <h1>Acerca de nosostros</h1>
+        <h1>Acerca de nosotros</h1>
     </div>
 
     <div class="row">
@@ -36,11 +36,11 @@ require_once "./public/values/aboutUS.php";
             <ul>
                 <li> Buen valor a sus empleados</li>
                 <li>Integridad y Honestidad</li>
-                <li>Ètica</li>
+                <li>Ética</li>
                 <li>Respeto</li>
                 <li>Compromiso</li>
                 <li>Buen Trato</li>
-                <li>Buena Comunicaciòn</li>
+                <li>Buena Comunicación</li>
                 <li>Confianza</li>
                 <li>Proactividad</li>
                 <li>Trato Justo</li>
@@ -64,7 +64,7 @@ require_once "./public/values/aboutUS.php";
 <section class="new-banner">
     <div class="content-banner">
         <p class="slogan">
-            " Trabaja con Nosostros"
+            " Trabaja con Nosotros"
         </p>
     </div>
 </section>
