@@ -1,4 +1,4 @@
 Options All -Indexes
 
 RewriteEngine On
-RewriteRule ^([a-zaA-Z0-9/]+)$ index.php?controller=$1
+RewriteRule ^([a-zA-Z0-9_/-]+)$ index.php?controller=$1 [QSA,L]

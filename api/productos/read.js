@@ -145,9 +145,9 @@ function displayProducts(products) {
         <img src="${product.imagen}" alt="Cafe incafe-ingles.jpg" />
         <span class="discount">${descuento}</span>
         <div class="button-group">
-            <span><i class="fa-regular fa-eye"></i></span>
-            <span><i class="fa-regular fa-heart"></i></span>
-            <span><i class="fa-solid fa-code-compare"></i></span>
+            <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-eye"></i></span>
+            <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-heart"></i></span>
+            <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-solid fa-code-compare"></i></span>
         </div>
         </div>
         <div>
@@ -162,4 +162,24 @@ function displayProducts(products) {
     </div>
         `);
     });
+}
+
+function cargarPaginaProducto(boton)
+{
+    id = obtenerID(boton);
+    window.location.href= "./Producto?id="+id;
+}
+
+function agregarProductoAListaDeDeseos(boton)
+{
+
+}
+function compartirProducto(boton)
+{
+
+}
+function obtenerID(obj)
+{
+    id = $(obj).attr("data-value");
+    return id;
 }
