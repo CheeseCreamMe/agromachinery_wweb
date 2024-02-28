@@ -3,6 +3,12 @@ require_once $peticionAjax ? "../../app/core/model/productosModel.php" : "./app/
 
 class ProductoController extends ProductosModelo
 {
+    public function obtenerUnProducto($id)
+    {
+        $datos =  self::buscarProducto($id);
+        return $datos;
+        
+    }
     public function agregarProductoController()
     {
         $nombre = self::limpiarCadena($_POST['nombre']);

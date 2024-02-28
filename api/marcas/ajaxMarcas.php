@@ -1,5 +1,4 @@
 <?php
-
 $peticionAjax = true;
 require_once "../../app/core/controller/marcasController.php";
 
@@ -16,7 +15,7 @@ if (isset($_POST['opcion'])) {
             $total = json_encode($instancia->eliminarMarcaServidor());
             break;
         case 'agregar':
-            $total = json_encode($instancia->agregarMarcaServidor());
+            $total = $instancia->agregarMarcaServidor();
             break;
         default:
             $total = consultarMarcas($instancia, "ver todo");

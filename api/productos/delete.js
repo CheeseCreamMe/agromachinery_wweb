@@ -11,7 +11,7 @@ function eliminarProducto(button) {
         if (result.isConfirmed) {
             // Se confirma la eliminación del producto
             $.ajax({
-                url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+                url: serverUri + "api/productos/ajaxProductos.php",
                 type: "POST",
                 data: { opcion: "eliminar", id: productCode },
                 success: function (response) {

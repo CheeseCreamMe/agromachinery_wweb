@@ -15,9 +15,9 @@ $(document).ready(function () {
                 imagen: imagenRuta_servidor,
                 opcion: "agregar"
             };
-            console.log(data);
-            sendDataToServer(data);
+        sendDataToServer(data);
         });
+        
     });
 });
 
@@ -32,7 +32,7 @@ function gatherSelectedCategories() {
 function sendDataToServer(data) {
     $.ajax({
         type: 'POST',
-        url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
+        url: serverUri + "api/marcas/ajaxMarcas.php",
         data: data,
         success: function (response) {
             let respuesta = response.split("/");
@@ -45,6 +45,7 @@ function sendDataToServer(data) {
             }
 
             clearFields();
+            actualizarTabla();
         },
         error: function (xhr, status, error) {
             showErrorAlert();
@@ -58,7 +59,7 @@ function guardarImagen(inputFile, callback) {
         formData.append('imagen', inputFile);
 
         $.ajax({
-            url: 'http://localhost/agromachinery_wweb/api/marcas/guardarImagen.php',
+            url: serverUri + 'api/marcas/guardarImagen.php',
             type: 'POST',
             data: formData,
             processData: false,
@@ -76,18 +77,18 @@ function guardarImagen(inputFile, callback) {
     }
 }
 
-function showSuccessAlert(response) {
+function showSuccessAlert() {
     Swal.fire({
         title: "Registrado",
-        text: response,
+        text: "se ha registrado correctamente la marca",
         icon: "success"
     });
 }
 
-function showErrorAlert(response) {
+function showErrorAlert() {
     Swal.fire({
         title: "Error",
-        text: response,
+        text: "Ha ocurrido un error y no se ha podido registrar la marca correctamente",
         icon: "error"
     });
 }

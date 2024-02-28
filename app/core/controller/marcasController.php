@@ -16,8 +16,6 @@ class MarcaController extends MarcasModel
         sort($categorias);
 
         $bd_response = self::agregarMarcaModel($nombre,$imagen, $categorias);
-        
-        var_dump($bd_response);
 
         if($bd_response) {
             return "se ha agregado una nueva marca con nombre : {$nombre} y se han asignado las categorías correctamente./success";

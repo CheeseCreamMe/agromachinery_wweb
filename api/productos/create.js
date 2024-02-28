@@ -32,7 +32,7 @@ function gatherFormData(imagePath) {
 function sendDataToServer(data) {
     $.ajax({
         type: 'POST',
-        url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+        url: serverUri + "api/productos/ajaxProductos.php",
         data: data,
         success: function (response) {
             showSuccessAlert(response);
@@ -48,7 +48,7 @@ function saveImage(inputFile, callback) {
         formData.append('imagen', inputFile);
 
         $.ajax({
-            url: 'http://localhost/agromachinery_wweb/api/productos/guardarImagen.php',
+            url: serverUri + 'api/productos/guardarImagen.php',
             type: 'POST',
             data: formData,
             processData: false,

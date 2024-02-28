@@ -11,7 +11,7 @@ function eliminarMarca(button) {
         if (result.isConfirmed) {
             // Se confirma la eliminación del producto
             $.ajax({
-                url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
+                url: serverUri + "api/marcas/ajaxMarcas.php",
                 type: "POST",
                 data: { opcion: "eliminar", id: brandCode },
                 success: function (response) {
