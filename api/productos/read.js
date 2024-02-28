@@ -27,7 +27,7 @@ function consultarProductos(categoria) {
     }
     if (tableList != true) {
         $.ajax({
-            url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+            url: serverUri+"api/productos/ajaxProductos.php",
             type: "POST",
             data: { opcion: requestData },
             success: function (response) {
@@ -48,7 +48,7 @@ function cargarTabla() {
     var table = $("#productos").DataTable({
         data: $.ajax(
             {
-                url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+                url: serverUri+"api/productos/ajaxProductos.php",
                 type: "POST",
                 data: { opcion: "verTodo" },
             }),
@@ -101,7 +101,7 @@ function cargarTabla() {
 
 function actualizarTabla() {
     $.ajax({
-        url: "http://localhost/agromachinery_wweb/api/productos/ajaxProductos.php",
+        url: serverUri+"api/productos/ajaxProductos.php",
         type: "POST",
         data: { opcion: "verTodo" },
         success: function (response) {

@@ -35,6 +35,8 @@
 	</div>
 	<!--js necesario--->
 	<script>
+		let serverUri = "<?php echo URI; ?>";
+		console.log(serverUri);
 		let categoria = "<?php echo $textovar; ?>";
 	</script>
 	<script src="./api/marcas/read.js"></script>

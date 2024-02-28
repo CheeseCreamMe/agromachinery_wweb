@@ -9,7 +9,9 @@
 <div class="row p-4" style="width: 100%;overflow-x: auto;white-space: nowrap;">
     <?php require_once  "./app/core/view/pages/admin/marca/ver.php";?>
 </div>
-
+<script>
+		let serverUri = "<?php echo URI; ?>";
+	</script>
 <script src=".././api/marcas/read.js"></script>
 <script src=".././api/marcas/create.js"></script>
 <script src=".././api/marcas/delete.js"></script>

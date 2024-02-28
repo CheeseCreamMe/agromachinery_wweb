@@ -12,14 +12,14 @@ function consultarMarcasServidor(callback)
 {
     $.ajax
     ({
-        url: 'http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php',
+        url: serverUri + 'api/marcas/ajaxMarcas.php',
         type: 'post',
         data: {categoriaSeleccionada: categoria},
         success: function(response)
         {
             try {
-                var categorias = JSON.parse(response);
-            callback(categorias);
+                var categoriasLista = JSON.parse(response);
+            callback(categoriasLista);
             } catch (error) {
                 console.log(error);
                 Swal.fire("Error 500","Hay problemas para conectar al servidor y obtener los datos, Intenta probar mas tarde","error");
@@ -52,7 +52,7 @@ function cargarTabla() {
     var table = $("#marcas").DataTable({
         data : $.ajax(
             {
-                url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
+                url: serverUri + "api/marcas/ajaxMarcas.php",
                 type: "POST",
                 data: { opcion: "verTodo" },
             }),
@@ -99,7 +99,7 @@ function cargarTabla() {
 function actualizarTabla(){
     $.ajax(
         {
-            url: "http://localhost/agromachinery_wweb/api/marcas/ajaxMarcas.php",
+            url: serverUri + "api/marcas/ajaxMarcas.php",
             type: "POST",
             data: { opcion: "verTodo" },
             success:function (response) {

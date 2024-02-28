@@ -1,5 +1,6 @@
 <?php
 session_start();
+const URI = "http://192.168.1.68/agromachinery_wweb/";
 //algunas de las url mas usadas en el proyecto
 const USER_VIEW_TEMPLATE = "./app/core/view/template/public/";
 const USER_VIEW = "./app/core/view/pages/public/";
