@@ -83,7 +83,7 @@
 .container-img .discount {
   position: absolute;
   left: 0;
-  background-color: var(--primary-color);
+  background-color: #4444;
   color: #fff;
   padding: 2px 1.2rem;
   border-radius: 1rem;
