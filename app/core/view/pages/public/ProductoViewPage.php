@@ -41,11 +41,9 @@
                     <div class="alert alert-dark text-center">
                         En stock: ${producto.inventario} unidades
                     </div>
-                    <div class="col-md-6 justify-content-center align-items-center">
-                        <button class="btn btn-info">Agregar al carrito</button>
-                    </div>
-                    <div class="col-md-6 justify-content-center align-items-center">
-                        <button class="btn btn-success">Comprar ahora</button>
+                    <div class="d-grid gap-2 p-4">
+                        <button class="btn btn-success" onclick="window.location = 'https://api.whatsapp.com/send?phone=+50361310395&text=deseo%20obtener%20mas%20informacion%20sobre%20el%20producto%20${producto.nombre},%20en%20en%20la%20categorias%20de%20${producto.categoria}'">
+                        Consulta mas info. en WhatsApp</button>
                     </div>
                 </div>
             </div>

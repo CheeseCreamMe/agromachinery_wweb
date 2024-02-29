@@ -1,4 +1,5 @@
 if ($('#mySelect').length ) {
+
     consultarMarcasServidor(function(categorias) {
         generarSelectMarcas('#mySelect', categorias);
     });
@@ -7,6 +8,13 @@ else{
     cargarTabla();
 }
 
+$('#mySelect').change(function() {
+    // Obtener el valor seleccionado
+    var selectedValue = $(this).val();
+    
+    // Hacer algo con el valor seleccionado, por ejemplo, mostrarlo en la consola
+    console.log("El valor seleccionado es: " + selectedValue);
+  });
 
 function consultarMarcasServidor(callback)
 {
@@ -33,7 +41,7 @@ function generarSelectMarcas(select, categorias)
     $(select).empty();
 
     var optionNula = $('<option/>')
-        .attr('value', '')
+        .attr('value', 0)
         .text('ninguna marca seleccionada');
 
     $(select).append(optionNula);

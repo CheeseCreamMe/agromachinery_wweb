@@ -29,6 +29,9 @@ if (isset($_POST['opcion'])) {
         case 'agregar':
             $json = $instancia->agregarProductoController();
             break;
+            case 'datosProducto':
+                $json = json_encode($instancia->obtenerUnProducto($_POST["id"]));
+                break;
         default:
             # code...
             break;
