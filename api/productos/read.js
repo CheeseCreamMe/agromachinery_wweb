@@ -21,11 +21,11 @@ function mostrarConFiltroDeMarcas(marca = 0) {
         consultarProductos(categoria);
     }
     else {
-        consultarProductos("marca",marcaSeleccionada);
+        consultarProductos("marca", marcaSeleccionada);
     }
 }
 
-function consultarProductos(categoria, marca=0) {
+function consultarProductos(categoria, marca = 0) {
     let requestData;
     let tableList = false;
     switch (categoria) {
@@ -42,8 +42,8 @@ function consultarProductos(categoria, marca=0) {
             cargarTabla();
             tableList = true;
             break;
-            case'marca':
-            requestData="buscarPorMarca"
+        case 'marca':
+            requestData = "buscarPorMarca"
             break;
         default:
             requestData = "verTodo";
@@ -59,7 +59,7 @@ function consultarProductos(categoria, marca=0) {
                     displayProducts(JSON.parse(response));
 
                 } catch (error) {
-                    Swal.fire("error: 500", "Hubo un problema al intentar conectar con la base de datos, "+error, "error");
+                    Swal.fire("error: 500", "Hubo un problema al intentar conectar con la base de datos, " + error, "error");
                 }
 
             },
@@ -175,7 +175,7 @@ function displayProducts(products) {
                 <div class="button-group">
                     <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-eye"></i></span>
                     <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-heart"></i></span>
-                    <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-solid fa-code-compare"></i></span>
+                    <span data-value="${product.codigo}"  onclick="compartirProducto(this)"><i class="fa-solid fa-code-compare"></i></span>
                 </div>
             </div>
         <div>
@@ -202,6 +202,18 @@ function agregarProductoAListaDeDeseos(boton) {
 
 }
 function compartirProducto(boton) {
+    try {
+            texto = serverUri + "Producto?id=" + obtenerID(boton);
+    var aux = document.createElement("input");
+    aux.setAttribute("value", texto);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+    Swal.fire("Copiado","Se ha copiado el texto al Portapapeles","success");
+    } catch (error) {
+        Swal.fire("Ups","Parece que no se pudo copiar el enlace por un problema de la app, intenta de nuevo mas tarde","error");
+    }
 
 }
 function obtenerID(obj) {

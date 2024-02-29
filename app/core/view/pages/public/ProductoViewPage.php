@@ -42,7 +42,7 @@
                         En stock: ${producto.inventario} unidades
                     </div>
                     <div class="d-grid gap-2 p-4">
-                        <button class="btn btn-success" onclick="window.location = 'https://api.whatsapp.com/send?phone=+50361310395&text=deseo%20obtener%20mas%20informacion%20sobre%20el%20producto%20${producto.nombre},%20en%20en%20la%20categorias%20de%20${producto.categoria}'">
+                        <button class="btn btn-success" onclick="window.location = 'https://api.whatsapp.com/send?phone=+50361310395&text=deseo%20obtener%20mas%20informacion%20sobre%20el%20producto%20${producto.nombre},%20en%20en%20la%20categoría%20de%20${producto.categoria}'">
                         Consulta mas info. en WhatsApp</button>
                     </div>
                 </div>
