@@ -1,9 +1,31 @@
+let marcaSeleccionada;
+$('#mySelect').change(function () {
+    // Obtener el valor seleccionado
+    if (!$("#productos").length) {
+        marcaSeleccionada = $(this).val();
+        mostrarConFiltroDeMarcas(marcaSeleccionada);
+    } else {
+        console.log($(this).val())
+    }
+});
+
 try {
+
     consultarProductos(categoria);
 } catch (error) {
     cargarTabla();
 }
-function consultarProductos(categoria) {
+
+function mostrarConFiltroDeMarcas(marca = 0) {
+    if (marca == 0) {
+        consultarProductos(categoria);
+    }
+    else {
+        consultarProductos("marca",marcaSeleccionada);
+    }
+}
+
+function consultarProductos(categoria, marca=0) {
     let requestData;
     let tableList = false;
     switch (categoria) {
@@ -20,23 +42,24 @@ function consultarProductos(categoria) {
             cargarTabla();
             tableList = true;
             break;
+            case'marca':
+            requestData="buscarPorMarca"
+            break;
         default:
             requestData = "verTodo";
             break;
-
     }
     if (tableList != true) {
         $.ajax({
-            url: serverUri+"api/productos/ajaxProductos.php",
+            url: serverUri + "api/productos/ajaxProductos.php",
             type: "POST",
-            data: { opcion: requestData },
+            data: { opcion: requestData, marca: marca },
             success: function (response) {
                 try {
-
                     displayProducts(JSON.parse(response));
 
                 } catch (error) {
-                    Swal.fire("error: 500", "Hubo un problema al intentar conectar con la base de datos, ", "error");
+                    Swal.fire("error: 500", "Hubo un problema al intentar conectar con la base de datos, "+error, "error");
                 }
 
             },
@@ -48,7 +71,7 @@ function cargarTabla() {
     var table = $("#productos").DataTable({
         data: $.ajax(
             {
-                url: serverUri+"api/productos/ajaxProductos.php",
+                url: serverUri + "api/productos/ajaxProductos.php",
                 type: "POST",
                 data: { opcion: "verTodo" },
             }),
@@ -101,7 +124,7 @@ function cargarTabla() {
 
 function actualizarTabla() {
     $.ajax({
-        url: serverUri+"api/productos/ajaxProductos.php",
+        url: serverUri + "api/productos/ajaxProductos.php",
         type: "POST",
         data: { opcion: "verTodo" },
         success: function (response) {
@@ -129,27 +152,32 @@ function displayProducts(products) {
     productContainer.innerHTML = '';
 
     products.forEach((product) => {
+        let descuento, precioRegular, precio;
+
+        // Comprobación y parseo de descuento
         if (product.descuento == null || product.descuento == 0) {
-            descuento = "precio regular";
-            precioRegular = "Sin descuento";
-            precio = product.precio;
+            descuento = "Sin descuento";
+            precioRegular = parseFloat(product.precio).toFixed(2);
+            precio = parseFloat(product.precio).toFixed(2);
+        } else {
+            descuento = parseFloat(product.descuento).toFixed(2);
+            precioRegular = parseFloat(product.precio).toFixed(2);
+            precio = parseFloat(product.precio - product.descuento).toFixed(2);
         }
-        else {
-            descuento = 'ahorras: $' + product.descuento;
-            precio = product.precio - product.descuento;
-            precioRegular = product.precio;
-        }
+
         productContainer.insertAdjacentHTML("beforeend", `
         <div class="card-product">
-        <div class="container-img">
-        <img src="${product.imagen}" alt="Cafe incafe-ingles.jpg" />
-        <span class="discount">${descuento}</span>
-        <div class="button-group">
-            <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-eye"></i></span>
-            <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-heart"></i></span>
-            <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-solid fa-code-compare"></i></span>
-        </div>
-        </div>
+            <div class="container-img" style="aspect-ratio:1/1;">
+            <span class="discount">${descuento}</span>
+                <div style="width: 100%;height:100%;background-image:url('${product.imagen}');background-size:cover; background-position:fixed;" >
+                </div>
+                
+                <div class="button-group">
+                    <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-eye"></i></span>
+                    <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-regular fa-heart"></i></span>
+                    <span data-value="${product.codigo}"  onclick="cargarPaginaProducto(this)"><i class="fa-solid fa-code-compare"></i></span>
+                </div>
+            </div>
         <div>
         <h3 class="exist" >disponible: ${product.inventario}</h3>
         <h2 class="price-discount">$ ${precioRegular}</h2>
@@ -164,22 +192,19 @@ function displayProducts(products) {
     });
 }
 
-function cargarPaginaProducto(boton)
-{
+
+function cargarPaginaProducto(boton) {
     id = obtenerID(boton);
-    window.location.href= "./Producto?id="+id;
+    window.location.href = "./Producto?id=" + id;
 }
 
-function agregarProductoAListaDeDeseos(boton)
-{
+function agregarProductoAListaDeDeseos(boton) {
 
 }
-function compartirProducto(boton)
-{
+function compartirProducto(boton) {
 
 }
-function obtenerID(obj)
-{
+function obtenerID(obj) {
     id = $(obj).attr("data-value");
     return id;
 }

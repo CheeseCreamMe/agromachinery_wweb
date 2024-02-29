@@ -8,13 +8,6 @@ else{
     cargarTabla();
 }
 
-$('#mySelect').change(function() {
-    // Obtener el valor seleccionado
-    var selectedValue = $(this).val();
-    
-    // Hacer algo con el valor seleccionado, por ejemplo, mostrarlo en la consola
-    console.log("El valor seleccionado es: " + selectedValue);
-  });
 
 function consultarMarcasServidor(callback)
 {

@@ -45,6 +45,10 @@ class ProductoController extends ProductosModelo
             case 'Todos':
                 $datos = $this->obtenerJsonProductosDefault();
                 break;
+                case 'marca':
+                    $marca = $_POST['marca'];
+                    $datos = self::obtenerJsonProductosPorMarca($marca);
+                    break;
             default:
                 $datos = [];
                 break;
@@ -56,6 +60,15 @@ class ProductoController extends ProductosModelo
     {
         try {
             $datos = self::obtenerPorCategoria($categoria);
+            return self::crearJSonTemplateProductos($datos);
+        } catch (\Throwable $th) {
+            return $this->handleError($th);
+        }
+    }
+    private function obtenerJsonProductosPorMarca($marca)
+    {
+        try {
+            $datos = self::obtenerFiltradoMarcaTabla($marca);
             return self::crearJSonTemplateProductos($datos);
         } catch (\Throwable $th) {
             return $this->handleError($th);
