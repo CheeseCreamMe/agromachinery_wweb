@@ -12,7 +12,7 @@
     <meta property="og:description" content="Agrotienda en línea y distribuidor de maquinaria de uso agrícola">
     <meta property="og:image" content="./public/images/banner_home.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://192.168.1.68/agromachinery_wweb/">
+    <meta property="og:url" content="<?php echo URI; ?>">
     <meta property="og:locale" content="es_ES">
     <!-- Metadatos para Twitter -->
     <meta name="twitter:title" content="Agromachinery">
